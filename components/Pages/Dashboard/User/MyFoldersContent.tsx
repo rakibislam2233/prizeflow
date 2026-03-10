@@ -1,0 +1,451 @@
+"use client";
+import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
+import { FileItem, Folder } from "@/interface/file.interface";
+import { cn } from "@/lib/utils";
+import { deleteFile, uploadFile } from "@/services/file.service";
+import { createFolder, deleteFolder } from "@/services/folder.service";
+import {
+  ChevronRight,
+  FileArchive,
+  FileCode,
+  FileText,
+  Film,
+  FolderOpen,
+  Image as ImageIcon,
+  Loader2,
+  MoreVertical,
+  Music,
+  Plus,
+  Trash2,
+  Upload,
+} from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useState, useTransition } from "react";
+import { toast } from "sonner";
+
+const MyFoldersContent = ({
+  initialFolders = [],
+  initialFiles = [],
+  currentFolderId = "root",
+  ancestry = [],
+  slug = [],
+}: {
+  initialFolders?: Folder[];
+  initialFiles?: FileItem[];
+  currentFolderId?: string;
+  ancestry?: Folder[];
+  slug?: string[];
+}) => {
+  const router = useRouter();
+  const [isPending, startTransition] = useTransition();
+  const [isCreateFolderModalOpen, setIsCreateFolderModalOpen] = useState(false);
+  const [newFolderName, setNewFolderName] = useState("");
+  const [activeMenuId, setActiveMenuId] = useState<string | null>(null);
+
+  const isRoot = currentFolderId === "root";
+
+  const folders = initialFolders;
+  const files = initialFiles;
+
+  const breadcrumbs = [
+    { id: "root", name: "My Files", path: "/dashboard/user/my-folders" },
+    ...ancestry.map((folder, index) => ({
+      id: folder.id,
+      name: folder.name,
+      path: `/dashboard/user/my-folders/${slug.slice(0, index + 1).join("/")}`,
+    })),
+  ];
+
+  const handleFolderClick = (folder: Folder) => {
+    const newSlug = [...slug, folder.id];
+    startTransition(() => {
+      router.push(`/dashboard/user/my-folders/${newSlug.join("/")}`);
+    });
+  };
+
+  const handleBreadcrumbClick = (path: string) => {
+    startTransition(() => {
+      router.push(path);
+    });
+  };
+
+  const handleCreateFolder = async () => {
+    if (!newFolderName.trim()) return;
+    startTransition(async () => {
+      try {
+        const parentId =
+          currentFolderId === "root" ? undefined : currentFolderId;
+        const res = await createFolder({ name: newFolderName, parentId });
+        if (res.success) {
+          toast.success("Folder created successfully");
+          setNewFolderName("");
+          setIsCreateFolderModalOpen(false);
+        } else {
+          toast.error(res.message || "Failed to create folder");
+        }
+      } catch (err) {
+        console.error(err);
+        toast.error("An error occurred");
+      }
+    });
+  };
+
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    startTransition(async () => {
+      try {
+        const formData = new FormData();
+        formData.append("file", file);
+        if (currentFolderId !== "root") {
+          formData.append("folderId", currentFolderId);
+        }
+
+        const res = await uploadFile(formData);
+        if (res.success) {
+          toast.success("File uploaded successfully");
+        } else {
+          toast.error(res.message || "Upload failed");
+        }
+      } catch (err) {
+        console.error(err);
+        toast.error("An error occurred during upload");
+      }
+    });
+  };
+
+  const handleDeleteFolder = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this folder?")) return;
+    startTransition(async () => {
+      try {
+        const res = await deleteFolder(id);
+        if (res.success) {
+          toast.success("Folder deleted");
+        }
+      } catch (err) {
+        console.error(err);
+        toast.error("Failed to delete");
+      }
+    });
+  };
+
+  const handleDeleteFile = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this file?")) return;
+    startTransition(async () => {
+      try {
+        const res = await deleteFile(id);
+        if (res.success) {
+          toast.success("File deleted");
+        }
+      } catch (err) {
+        console.error(err);
+        toast.error("Failed to delete");
+      }
+    });
+  };
+
+  const formatSize = (bytes: number) => {
+    if (bytes === 0) return "0 Bytes";
+    const k = 1024;
+    const sizes = ["Bytes", "KB", "MB", "GB", "TB"];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + " " + sizes[i];
+  };
+
+  const getFileIcon = (type: string) => {
+    const t = type.toLowerCase();
+    if (t.includes("pdf"))
+      return <FileText className="w-10 h-10 text-[#FF4D4F]" />;
+    if (t.includes("image"))
+      return <ImageIcon className="w-10 h-10 text-[#56CDAD]" />;
+    if (t.includes("video"))
+      return <Film className="w-10 h-10 text-[#8E00CC]" />;
+    if (t.includes("audio"))
+      return <Music className="w-10 h-10 text-[#FFB836]" />;
+    if (
+      t.includes("javascript") ||
+      t.includes("typescript") ||
+      t.includes("code")
+    )
+      return <FileCode className="w-10 h-10 text-[#25324B]" />;
+    if (t.includes("zip") || t.includes("rar") || t.includes("archive"))
+      return <FileArchive className="w-10 h-10 text-[#64748B]" />;
+    return <FileText className="w-10 h-10 text-[#64748B]" />;
+  };
+
+  return (
+    <div className="p-8  bg-white min-h-screen">
+      {/* Header Bar */}
+      <div className="flex items-center justify-between mb-8">
+        {/* Breadcrumbs */}
+        <nav className="flex items-center gap-2 text-sm">
+          {breadcrumbs.map((crumb, index) => (
+            <div key={crumb.id} className="flex items-center gap-2">
+              {index > 0 && <ChevronRight className="w-4 h-4 text-gray-300" />}
+              <button
+                onClick={() => handleBreadcrumbClick(crumb.path)}
+                className={cn(
+                  "transition-colors",
+                  index === breadcrumbs.length - 1
+                    ? "text-[#25324B] font-extrabold"
+                    : "text-gray-400 font-bold hover:text-primary",
+                )}
+              >
+                {crumb.name}
+              </button>
+            </div>
+          ))}
+        </nav>
+
+        {/* Top Actions */}
+        <div className="flex items-center gap-4">
+          <Button
+            variant="outline"
+            onClick={() => setIsCreateFolderModalOpen(true)}
+            disabled={isPending}
+            className="flex items-center gap-2 px-6 py-2.5 border-2 border-primary text-primary rounded font-bold hover:bg-primary/5 transition-all outline-none disabled:opacity-50 h-auto"
+          >
+            {isPending ? (
+              <Loader2 className="w-5 h-5 animate-spin" />
+            ) : (
+              <Plus className="w-5 h-5" />
+            )}
+            <span>New Folder</span>
+          </Button>
+
+          {!isRoot && (
+            <Button
+              asChild
+              className={cn(
+                "flex items-center gap-2 px-6 py-2.5 bg-primary text-white rounded font-bold cursor-pointer hover:bg-primary/90 transition-all h-auto",
+                isPending && "opacity-50 pointer-events-none",
+              )}
+            >
+              <label>
+                {isPending ? (
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                ) : (
+                  <Upload className="w-5 h-5" />
+                )}
+                <span>Upload File</span>
+                <input
+                  type="file"
+                  className="hidden"
+                  onChange={handleFileUpload}
+                  disabled={isPending}
+                />
+              </label>
+            </Button>
+          )}
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
+        {isPending ? (
+          Array.from({ length: 10 }).map((_, i) => (
+            <div
+              key={i}
+              className="bg-white border border-gray-100 p-6 rounded animate-pulse"
+            >
+              <Skeleton className="w-12 h-12 rounded mb-4" />
+              <Skeleton className="h-5 w-3/4 mb-2" />
+              <Skeleton className="h-4 w-1/2" />
+            </div>
+          ))
+        ) : (
+          <>
+            {/* Folders */}
+            {folders.map((folder) => (
+              <div
+                key={folder.id}
+                className="group relative bg-white border border-gray-100 p-6 rounded transition-all cursor-pointer ring-offset-2 flex flex-col"
+                onClick={() => handleFolderClick(folder)}
+              >
+                <div className="flex items-center flex-col text-center">
+                  <div className="w-14 h-14 bg-amber-50 rounded flex items-center justify-center mb-4 text-amber-500 transition-transform">
+                    <FolderOpen className="w-8 h-8 fill-amber-500" />
+                  </div>
+                  <div className="text-center">
+                    <h3 className="text-base font-extrabold text-[#25324B] mb-1 truncate max-w-[180px]">
+                      {folder.name}
+                    </h3>
+                    <p className="text-xs text-gray-400 font-bold">
+                      {folder.totalFiles || 0} files •{" "}
+                      {formatSize(folder.totalSize || 0)}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="absolute top-4 right-4 flex items-center gap-2">
+                  <Button
+                    variant="ghost"
+                    size="icon-sm"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActiveMenuId(
+                        activeMenuId === folder.id ? null : folder.id,
+                      );
+                    }}
+                    className="p-1.5 text-gray-300 hover:text-gray-500 rounded hover:bg-gray-50 transition-colors"
+                  >
+                    <MoreVertical className="w-5 h-5" />
+                  </Button>
+                  {activeMenuId === folder.id && (
+                    <div className="absolute top-full right-0 mt-2 w-48 bg-white border border-gray-100 rounded z-20 py-2 animate-in fade-in zoom-in-95 duration-200">
+                      <button className="w-full flex items-center gap-3 px-4 py-2 text-sm font-bold text-gray-600 hover:bg-gray-50 transition-colors">
+                        <Plus className="w-4 h-4" /> Rename
+                      </button>
+                      <button className="w-full flex items-center gap-3 px-4 py-2 text-sm font-bold text-gray-600 hover:bg-gray-50 transition-colors">
+                        <Upload className="w-4 h-4" /> Share
+                      </button>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleDeleteFolder(folder.id);
+                        }}
+                        className="w-full flex items-center gap-3 px-4 py-2 text-sm font-bold text-red-500 hover:bg-red-50 transition-colors"
+                      >
+                        <Trash2 className="w-4 h-4" /> Delete
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+
+            {/* Files */}
+            {files.map((file) => (
+              <div
+                key={file.id}
+                className="group relative bg-white border border-gray-100 p-6 rounded transition-all ring-offset-2 flex flex-col"
+              >
+                <div className="flex items-center flex-col text-center">
+                  <div className="w-14 h-14 bg-blue-50/50 rounded flex items-center justify-center mb-4 transition-transform">
+                    {getFileIcon(file.type)}
+                  </div>
+                  <div className="text-center">
+                    <h3 className="text-base font-extrabold text-[#25324B] mb-1 truncate max-w-[180px]">
+                      {file.originalName}
+                    </h3>
+                    <p className="text-xs text-gray-400 font-bold">
+                      {formatSize(file.size)} •{" "}
+                      {new Date(file.updatedAt).toLocaleDateString()}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="absolute top-4 right-4 flex items-center gap-2">
+                  <Button
+                    variant="ghost"
+                    size="icon-sm"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActiveMenuId(
+                        activeMenuId === file.id ? null : file.id,
+                      );
+                    }}
+                    className="p-1.5 text-gray-300 hover:text-gray-500 rounded hover:bg-gray-50 transition-colors"
+                  >
+                    <MoreVertical className="w-5 h-5" />
+                  </Button>
+                  {activeMenuId === file.id && (
+                    <div className="absolute top-full right-0 mt-2 w-48 bg-white border border-gray-100 rounded z-20 py-2 animate-in fade-in zoom-in-95 duration-200">
+                      <button className="w-full flex items-center gap-3 px-4 py-2 text-sm font-bold text-gray-600 hover:bg-gray-50 transition-colors">
+                        <Plus className="w-4 h-4" /> Rename
+                      </button>
+                      <button className="w-full flex items-center gap-3 px-4 py-2 text-sm font-bold text-gray-600 hover:bg-gray-50 transition-colors">
+                        <Upload className="w-4 h-4" /> Download
+                      </button>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleDeleteFile(file.id);
+                        }}
+                        className="w-full flex items-center gap-3 px-4 py-2 text-sm font-bold text-red-500 hover:bg-red-50 transition-colors"
+                      >
+                        <Trash2 className="w-4 h-4" /> Delete
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+
+            {folders.length === 0 && files.length === 0 && (
+              <div className="col-span-full py-40 flex flex-col items-center justify-center text-center">
+                <div className="w-24 h-24 bg-gray-50 rounded-full flex items-center justify-center mb-6">
+                  <FolderOpen className="w-12 h-12 text-gray-200" />
+                </div>
+                <h3 className="text-xl font-extrabold text-[#25324B] mb-2">
+                  {isRoot ? "Create your first folder" : "This folder is empty"}
+                </h3>
+                <p className="text-gray-400 text-sm max-w-sm font-medium">
+                  {isRoot
+                    ? "Start by creating a directory to organize your files. You can upload files once you are inside a folder."
+                    : "No files or subfolders found here. Start by uploading a file or creating a subfolder."}
+                </p>
+                {isRoot && (
+                  <Button
+                    onClick={() => setIsCreateFolderModalOpen(true)}
+                    className="mt-6 flex items-center gap-2 px-8 py-3 bg-primary text-white rounded font-black hover:bg-primary/90 transition-all h-auto"
+                  >
+                    <Plus className="w-5 h-5" />
+                    <span>New Folder</span>
+                  </Button>
+                )}
+              </div>
+            )}
+          </>
+        )}
+      </div>
+
+      {/* Create Folder Modal Overlay */}
+      {isCreateFolderModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="bg-white rounded w-full max-w-md p-8 animate-in zoom-in-95 duration-200 border border-gray-100">
+            <h3 className="text-2xl font-black text-[#25324B] mb-2 text-center">
+              Create New Folder
+            </h3>
+            <p className="text-gray-500 text-sm mb-8 font-medium text-center">
+              Enter a name for your new directory.
+            </p>
+
+            <input
+              type="text"
+              value={newFolderName}
+              onChange={(e) => setNewFolderName(e.target.value)}
+              placeholder="e.g. Work Documents"
+              className="w-full px-5 py-4 bg-gray-50 border border-gray-100 rounded focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary focus:bg-white transition-all mb-8 font-bold text-[#25324B]"
+              autoFocus
+              onKeyDown={(e) => e.key === "Enter" && handleCreateFolder()}
+            />
+
+            <div className="flex gap-4">
+              <Button
+                variant="outline"
+                onClick={() => setIsCreateFolderModalOpen(false)}
+                className="flex-1 px-4 py-4 border border-gray-100 rounded font-extrabold text-gray-500 hover:bg-gray-50 transition-colors h-auto"
+              >
+                Cancel
+              </Button>
+              <Button
+                onClick={handleCreateFolder}
+                disabled={!newFolderName.trim() || isPending}
+                className="flex-1 px-4 py-4 bg-primary text-white rounded font-extrabold hover:bg-primary/90 transition-all disabled:opacity-50 flex items-center justify-center gap-2 h-auto"
+              >
+                {isPending && <Loader2 className="w-5 h-5 animate-spin" />}
+                {isPending ? "Creating..." : "Create Folder"}
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Removed Uploading Progress Overlay */}
+    </div>
+  );
+};
+
+export default MyFoldersContent;
