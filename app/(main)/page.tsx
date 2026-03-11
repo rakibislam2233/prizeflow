@@ -1,21 +1,32 @@
-import CTASection from "@/components/Pages/Home/CTASection";
-import FeaturesSection from "@/components/Pages/Home/FeaturesSection";
-import HeroSection from "@/components/Pages/Home/HeroSection";
-import SubscriptionTiers from "@/components/Pages/Home/SubscriptionTiers";
-import { Metadata } from "next";
+import React from "react";
+import FilterBar from "@/components/Pages/Home/FilterBar";
+import FeaturedLottery from "@/components/Pages/Home/FeaturedLottery";
+import WinningBigLottery from "@/components/Pages/Home/WinningBigLottery";
+import DrawSoonSidebar from "@/components/Pages/Home/DrawSoonSidebar";
 
-export const metadata: Metadata = {
-  title: "Storify | Secure File Management System",
-  description: "Professional subscription-based file and folder management with tiered storage plans.",
+export const metadata = {
+  title: "PrizeFlow | Lottery & Giveaway",
+  description: "Win big prizes including Cash, Tech, Cars, and Properties.",
 };
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen">
-      <HeroSection />
-      <FeaturesSection />
-      <SubscriptionTiers />
-      <CTASection />
+    <div className="min-h-screen bg-[#f5f6f8] py-8 px-4 md:px-8 lg:px-12">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8">
+        {/* Main Content */}
+        <div className="flex-grow lg:w-3/4">
+          <FilterBar />
+          <FeaturedLottery />
+          <WinningBigLottery />
+        </div>
+
+        {/* Sidebar */}
+        <aside className="lg:w-1/4 flex-shrink-0">
+          <div className="sticky top-8">
+            <DrawSoonSidebar />
+          </div>
+        </aside>
+      </div>
     </div>
   );
 };
