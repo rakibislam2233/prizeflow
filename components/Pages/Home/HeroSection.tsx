@@ -1,97 +1,122 @@
+"use client";
+import { Button } from "@/components/ui/button";
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
+
+import { sliderData } from "@/data/sliderData";
+import CountdownTimer from "./CountdownTimer";
+
 const HeroSection = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Auto pagination
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % sliderData.length);
+    }, 6000); // Change slide every 6 seconds
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <div className="min-h-screen w-full bg-white relative">
-      {/* Diagonal Cross Center Fade Grid Background */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `
-            linear-gradient(45deg, transparent 49%, #e5e7eb 49%, #e5e7eb 51%, transparent 51%),
-            linear-gradient(-45deg, transparent 49%, #e5e7eb 49%, #e5e7eb 51%, transparent 51%)
-          `,
-          backgroundSize: "40px 40px",
-          WebkitMaskImage:
-            "radial-gradient(ellipse 60% 60% at 50% 50%, #000 30%, transparent 70%)",
-          maskImage:
-            "radial-gradient(ellipse 60% 60% at 50% 50%, #000 30%, transparent 70%)",
-        }}
-      />
-
-      {/* Content */}
-      <div className="relative z-10 py-32">
-        <div className="relative max-w-6xl mx-auto px-4 text-center">
-          {/* Subtitle */}
-          <p className="text-2xl md:text-3xl lg:text-4xl text-gray-700 mb-6 max-w-4xl mx-auto leading-relaxed font-light">
-            Professional File & Folder Management
-          </p>
-          <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Smart Subscription Tiers • Dynamic Controls • Enterprise Security
-          </p>
-
-          {/* Detailed Description */}
-          <p className="text-lg text-gray-500 mb-16 max-w-2xl mx-auto leading-relaxed">
-            Experience secure cloud storage with admin-defined tiers that
-            enforce storage limits, file type restrictions, and folder depth
-            rules for complete control.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <a
-              href="/auth/register"
-              className="group relative px-10 py-4 bg-primary text-white rounded"
-            >
-              <span className="relative z-10">Start Free Trial</span>
-            </a>
-            <a
-              href="/pricing"
-              className="px-7 py-4 border border-primary text-primary rounded font-semibold"
-            >
-              View Pricing Plans
-              <svg
-                className="inline-block ml-2 w-5 h-5  transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </a>
-          </div>
-
-          {/* Trust Indicators */}
-          <div className="mt-16 flex flex-wrap justify-center items-center gap-8 text-gray-500 text-sm">
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  fillRule="evenodd"
-                  d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              <span>Bank-level Security</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
-              </svg>
-              <span>99.9% Uptime</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
-              </svg>
-              <span>10,000+ Users</span>
-            </div>
-          </div>
-        </div>
+    <section
+      className="relative w-full h-screen overflow-hidden flex items-center"
+      style={{
+        backgroundImage: "url('/asset/home/hero.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      {/* Abstract Background Diagonal Shapes */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
+        <div
+          className="absolute top-[-20%] right-0 w-[80%] h-[150%] bg-[#5E1DB1]/30 -rotate-45 origin-top-right transform translate-x-[20%]"
+          style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)" }}
+        />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[80%] bg-[#811AD6]/40 -skew-x-40 origin-bottom-right" />
       </div>
-    </div>
+
+      <div className="container mx-auto px-6 md:px-16 relative z-10 w-full pt-28 lg:pt-16 pb-20 lg:pb-0">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-8"
+          >
+            {/* Left Content */}
+            <div className="w-full lg:w-[55%] flex flex-col justify-center text-left mt-10 lg:mt-0">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.15] tracking-tight mb-4">
+                {sliderData[currentSlide].title1} <br />
+                {sliderData[currentSlide].title2}
+              </h1>
+
+              <p className="text-[#A4AEDE] text-lg lg:text-xl md:pr-10 mb-8 font-light leading-relaxed">
+                {sliderData[currentSlide].subtitle}
+              </p>
+
+              <div>
+                <p className="text-gray-300 text-sm mb-1.5 font-medium tracking-wide">
+                  Draw count down
+                </p>
+                <CountdownTimer targetDate={sliderData[currentSlide].endDate} />
+              </div>
+
+              <div className="flex flex-row gap-5 items-center">
+                <Button className="bg-primary hover:bg-primary/90 text-white border-0 h-12 px-8 rounded cursor-pointer text-base font-semibold shadow-lg shadow-primary/20 transition-all">
+                  Entry now
+                </Button>
+                <Button
+                  variant="outline"
+                  className="bg-transparent border-[#29427D] text-[#869FD1] hover:text-white hover:bg-[#29427D]/40 h-12 px-8 rounded cursor-pointer text-base transition-all"
+                >
+                  How it work
+                </Button>
+              </div>
+            </div>
+
+            {/* Right Image Content */}
+            <div className="w-full lg:w-[45%] flex justify-center lg:justify-end relative h-[250px] sm:h-[350px] lg:h-[450px]">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, x: 40 }}
+                animate={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.1,
+                  type: "spring",
+                  bounce: 0.3,
+                }}
+                className="relative w-full h-full flex items-center justify-center max-w-[650px] xl:max-w-[750px]"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={sliderData[currentSlide].image}
+                  alt="Prize Showcase"
+                  className="object-contain w-full h-full drop-shadow-2xl"
+                />
+              </motion.div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Pagination Dots */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-3 z-30">
+        {sliderData.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            className={`h-2 rounded-full transition-all duration-300 ${
+              currentSlide === index
+                ? "w-10 bg-white"
+                : "w-4 bg-white/30 hover:bg-white/50"
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    </section>
   );
 };
 

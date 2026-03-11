@@ -7,7 +7,7 @@ const AuthButtons = () => {
       <Link href="/login">
         <Button
           variant="ghost"
-          className="text-primary font-semibold hover:bg-transparent cursor-pointer"
+          className="text-white group-data-[scrolled=true]:text-primary font-semibold hover:bg-transparent hover:text-white/80 group-data-[scrolled=true]:hover:bg-transparent group-data-[scrolled=true]:hover:text-primary/80 cursor-pointer"
         >
           Login
         </Button>

@@ -12,9 +12,9 @@ const Navbar = async () => {
   const dashboardHref =
     user?.role === UserRole.ADMIN
       ? "/dashboard/admin"
-      : user?.role === UserRole.COMPANY
-        ? "/dashboard/company"
-        : "/dashboard/user";
+      : user?.role === UserRole.USER
+        ? "/dashboard/user"
+        : "/dashboard/company";
 
   return (
     <NavbarClientContainer>

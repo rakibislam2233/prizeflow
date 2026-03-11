@@ -1,10 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
-
 interface NavbarClientContainerProps {
   children: React.ReactNode;
 }
-
 const NavbarClientContainer: React.FC<NavbarClientContainerProps> = ({
   children,
 }) => {
@@ -21,9 +19,10 @@ const NavbarClientContainer: React.FC<NavbarClientContainerProps> = ({
 
   return (
     <nav
-      className={`fixed top-0 w-full z-100 transition-all duration-300 ${
+      data-scrolled={isScrolled}
+      className={`group fixed top-0 w-full z-100 transition-all duration-300 ${
         isScrolled
-          ? "bg-white border-b border-gray-100"
+          ? "bg-white shadow-sm border-b border-gray-100"
           : "bg-transparent border-transparent"
       }`}
     >
