@@ -2,7 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import Link from "next/link";
-import Logo from "./Navbar/Logo";
+import Image from "next/image";
+import logo from "@/public/asset/logo/logo.png";
 
 const Footer = () => {
   return (
@@ -11,7 +12,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
           {/* Logo & Info */}
           <div className="lg:col-span-4 flex flex-col items-start gap-6 pr-4">
-            <Logo />
+            <Image src={logo} alt="Logo" width={75} height={75} />
             <p className="text-gray-400 text-sm md:text-base leading-relaxed max-w-sm mt-2">
               Professional file management system with smart subscription tiers.
               Secure, scalable, and enterprise-ready.

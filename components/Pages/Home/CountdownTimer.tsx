@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 
 const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
@@ -47,7 +46,7 @@ const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
       {timeBlocks.map((block, i) => (
         <div
           key={i}
-          className="flex flex-col items-center bg-[#465377]/60 backdrop-blur-md rounded px-3 sm:px-5 py-2 min-w-[50px] sm:min-w-[65px] shadow-inner"
+          className="flex flex-col items-center bg-[#465377]/60 backdrop-blur-md rounded px-3 sm:px-5 py-2 size-20  justify-center  shadow-inner"
         >
           <span className="text-xl sm:text-2xl font-bold text-white tracking-wider">
             {block.value.toString().padStart(2, "0")}
