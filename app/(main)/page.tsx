@@ -1,3 +1,4 @@
+import CallToActionBanner from "@/components/Pages/Home/CallToActionBanner";
 import DrawSoonSidebar from "@/components/Pages/Home/DrawSoonSidebar";
 import FeaturedLottery from "@/components/Pages/Home/FeaturedLottery";
 import FilterBar from "@/components/Pages/Home/FilterBar";
@@ -27,6 +28,7 @@ const HomePage = () => {
         </aside>
       </div>
       <RecentWinners />
+      <CallToActionBanner />
     </div>
   );
 };

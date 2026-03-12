@@ -11,9 +11,8 @@ const WinnersGrid: React.FC<WinnersGridProps> = ({ winners }) => {
       {winners.map((winner) => (
         <div 
           key={winner.id}
-          className="bg-white rounded-lg p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow duration-300"
+          className="bg-white rounded-lg p-4 sm:p-6 transition-shadow duration-300"
         >
-          {/* Winner Image */}
           <div className="flex flex-col items-center text-center">
             <div className="w-16 h-16 sm:w-20 sm:h-20 mb-4 rounded-full overflow-hidden bg-gray-100">
               <img
