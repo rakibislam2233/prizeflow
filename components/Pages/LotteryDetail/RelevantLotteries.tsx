@@ -16,7 +16,7 @@ const RelevantLotteries: React.FC<RelevantLotteriesProps> = ({ currentLotteryId 
     .slice(0, 6);
 
   return (
-    <section className="py-12">
+    <section className="w-full py-12">
       <div className="container mx-auto px-4 sm:px-6 md:px-8">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
           <h2 className="text-xl sm:text-2xl font-semibold text-gray-800">
@@ -28,7 +28,7 @@ const RelevantLotteries: React.FC<RelevantLotteriesProps> = ({ currentLotteryId 
             </span>
           </Link>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {relevantLotteries.map((item) => (
             <LotteryCard key={item.id} item={item} />
           ))}
