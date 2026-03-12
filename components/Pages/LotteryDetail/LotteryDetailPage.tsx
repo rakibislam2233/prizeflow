@@ -204,9 +204,11 @@ const LotteryDetailPage: React.FC<LotteryDetailPageProps> = ({ lottery }) => {
                   </div>
 
                   {/* Action Button */}
-                  <Button className="w-full bg-primary text-white border-0 h-12 rounded-lg cursor-pointer text-base font-semibold">
-                    Entry Now - ${(lottery.ticketPrice * ticketQuantity).toFixed(2)}
-                  </Button>
+                  <Link href={`/checkout?lotteryId=${lottery.id}&quantity=${ticketQuantity}`}>
+                    <Button className="w-full bg-primary text-white border-0 h-12 rounded-lg cursor-pointer text-base font-semibold">
+                      Buy Ticket - ${(lottery.ticketPrice * ticketQuantity).toFixed(2)}
+                    </Button>
+                  </Link>
                 </div>
 
                 {/* How It Works */}
