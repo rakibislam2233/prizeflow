@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import logo from "@/public/asset/logo/logo.png";
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import Image from "next/image";
@@ -7,52 +5,52 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#202430] text-white pt-16 pb-8 ">
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+    <footer className="bg-[#0F172A] text-white pt-16 pb-8">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 mb-16">
           {/* Logo & Info */}
-          <div className="lg:col-span-4 flex flex-col items-start gap-6 pr-4">
-            <Image src={logo} alt="Logo" width={75} height={75} />
-            <p className="text-gray-400 text-sm md:text-base leading-relaxed max-w-sm mt-2">
-              Professional file management system with smart subscription tiers.
-              Secure, scalable, and enterprise-ready.
+          <div className="lg:col-span-4 flex flex-col items-start gap-6">
+            <Image src={logo} alt="PrizeFlow Logo" width={120} height={40} />
+            <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
+              Your trusted platform for online lottery and competitions. 
+              Win amazing prizes with fair and transparent draws.
             </p>
           </div>
 
-          {/* Links: Product */}
+          {/* Links: Quick Links */}
           <div className="lg:col-span-2">
-            <h4 className="text-lg font-semibold mb-6  text-white">Product</h4>
-            <ul className="flex flex-col gap-4 text-gray-400 text-sm md:text-base">
+            <h4 className="text-lg font-semibold mb-6 text-white">Quick Links</h4>
+            <ul className="flex flex-col gap-4 text-gray-400 text-sm">
               <li>
                 <Link
-                  href="/features"
+                  href="/lotteries"
                   className="hover:text-white transition-colors"
                 >
-                  Features
+                  All Lotteries
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/pricing"
+                  href="/how-it-works"
                   className="hover:text-white transition-colors"
                 >
-                  Pricing
+                  How It Works
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/security"
+                  href="/winners"
                   className="hover:text-white transition-colors"
                 >
-                  Security
+                  Recent Winners
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/api"
+                  href="/faq"
                   className="hover:text-white transition-colors"
                 >
-                  API Docs
+                  FAQ
                 </Link>
               </li>
             </ul>
@@ -60,8 +58,8 @@ const Footer = () => {
 
           {/* Links: Company */}
           <div className="lg:col-span-2">
-            <h4 className="text-lg font-semibold mb-6  text-white">Company</h4>
-            <ul className="flex flex-col gap-4 text-gray-400 text-sm md:text-base">
+            <h4 className="text-lg font-semibold mb-6 text-white">Company</h4>
+            <ul className="flex flex-col gap-4 text-gray-400 text-sm">
               <li>
                 <Link
                   href="/about"
@@ -72,10 +70,10 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/blog"
+                  href="/contact"
                   className="hover:text-white transition-colors"
                 >
-                  Blog
+                  Contact
                 </Link>
               </li>
               <li>
@@ -88,83 +86,98 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/contact"
+                  href="/press"
                   className="hover:text-white transition-colors"
                 >
-                  Contact
+                  Press
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Links: Support */}
+          {/* Links: Legal */}
           <div className="lg:col-span-2">
-            <h4 className="text-lg font-semibold mb-6  text-white">Support</h4>
-            <ul className="flex flex-col gap-4 text-gray-400 text-sm md:text-base">
+            <h4 className="text-lg font-semibold mb-6 text-white">Legal</h4>
+            <ul className="flex flex-col gap-4 text-gray-400 text-sm">
               <li>
                 <Link
-                  href="/help"
+                  href="/terms"
                   className="hover:text-white transition-colors"
                 >
-                  Help Center
+                  Terms of Service
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/docs"
+                  href="/privacy"
                   className="hover:text-white transition-colors"
                 >
-                  Documentation
+                  Privacy Policy
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/status"
+                  href="/responsible-gaming"
                   className="hover:text-white transition-colors"
                 >
-                  System Status
+                  Responsible Gaming
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/feedback"
+                  href="/fair-play"
                   className="hover:text-white transition-colors"
                 >
-                  Feedback
+                  Fair Play
                 </Link>
               </li>
             </ul>
           </div>
 
           {/* Newsletter */}
-          <div className="lg:col-span-4">
-            <h4 className="text-lg font-semibold mb-6  text-white">
-              Stay Updated
+          <div className="lg:col-span-2">
+            <h4 className="text-lg font-semibold mb-6 text-white">
+              Follow Us
             </h4>
-            <p className="text-gray-400 text-sm md:text-base mb-6 max-w-sm leading-relaxed">
-              Get the latest features, updates, and file management tips sent to
-              your inbox weekly.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-2 w-full">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                className="bg-white text-gray-900 border-none rounded-none h-12 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-0 focus-visible:ring-offset-transparent flex-1"
-              />
-              <Button className="bg-primary cursor-pointer text-white rounded-none h-12 px-8 font-semibold w-full sm:w-auto">
-                Subscribe
-              </Button>
+            <div className="flex gap-3 mb-6">
+              <Link
+                href="#"
+                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-white"
+              >
+                <Facebook className="w-5 h-5" />
+              </Link>
+              <Link
+                href="#"
+                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-white"
+              >
+                <Twitter className="w-5 h-5" />
+              </Link>
+              <Link
+                href="#"
+                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-white"
+              >
+                <Instagram className="w-5 h-5" />
+              </Link>
+              <Link
+                href="#"
+                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-white"
+              >
+                <Linkedin className="w-5 h-5" />
+              </Link>
             </div>
+            <p className="text-gray-400 text-sm mb-4">
+              Stay connected for latest updates and winner announcements
+            </p>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="h-px w-full bg-gray-800 mb-8 mt-12"></div>
+        <div className="h-px w-full bg-gray-800 mb-8"></div>
 
         {/* Bottom */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-gray-400 text-sm font-medium">
-          <p>{new Date().getFullYear()} © Storify. All rights reserved.</p>
-          <div className="flex items-center gap-6">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 text-gray-400 text-sm">
+          <p>{new Date().getFullYear()} © PrizeFlow. All rights reserved.</p>
+          <div className="flex items-center gap-6 order-2 lg:order-1">
             <Link href="/terms" className="hover:text-white transition-colors">
               Terms of Service
             </Link>
@@ -175,31 +188,22 @@ const Footer = () => {
               Privacy Policy
             </Link>
           </div>
-          <div className="flex items-center gap-4">
-            <Link
-              href="#"
-              className="w-8 h-8 rounded-full bg-gray-800/80 flex items-center justify-center hover:bg-primary hover:text-white transition-colors text-white"
-            >
-              <Facebook className="w-4 h-4" />
-            </Link>
-            <Link
-              href="#"
-              className="w-8 h-8 rounded-full bg-gray-800/80 flex items-center justify-center hover:bg-primary hover:text-white transition-colors text-white"
-            >
-              <Instagram className="w-4 h-4" />
-            </Link>
-            <Link
-              href="#"
-              className="w-8 h-8 rounded-full bg-gray-800/80 flex items-center justify-center hover:bg-primary hover:text-white transition-colors text-white"
-            >
-              <Linkedin className="w-4 h-4" />
-            </Link>
-            <Link
-              href="#"
-              className="w-8 h-8 rounded-full bg-gray-800/80 flex items-center justify-center hover:bg-primary hover:text-white transition-colors text-white"
-            >
-              <Twitter className="w-4 h-4" />
-            </Link>
+          <div className="flex items-center gap-4 order-3">
+            <span className="text-xs">Payment methods:</span>
+            <div className="flex gap-3">
+              <div className="w-12 h-8 bg-white rounded flex items-center justify-center p-1">
+                <img src="/asset/payment/stripe.png" alt="Stripe" className="w-full h-full object-contain" />
+              </div>
+              <div className="w-12 h-8 bg-white rounded flex items-center justify-center p-1">
+                <img src="/asset/payment/paypal.png" alt="PayPal" className="w-full h-full object-contain" />
+              </div>
+              <div className="w-12 h-8 bg-white rounded flex items-center justify-center p-1">
+                <img src="/asset/payment/visa.png" alt="Visa" className="w-full h-full object-contain" />
+              </div>
+              <div className="w-12 h-8 bg-white rounded flex items-center justify-center p-1">
+                <img src="/asset/payment/mastercard.png" alt="Mastercard" className="w-full h-full object-contain" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
