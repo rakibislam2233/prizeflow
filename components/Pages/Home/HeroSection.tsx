@@ -19,7 +19,7 @@ const HeroSection = () => {
 
   return (
     <section
-      className="relative w-full h-screen md:min-h-screen overflow-hidden flex items-center"
+      className="relative w-full h-full md:min-h-screen overflow-hidden flex items-center"
       style={{
         backgroundImage: "url('/asset/home/hero.jpg')",
         backgroundSize: "cover",
@@ -43,7 +43,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-8"
+            className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8"
           >
             {/* Left Content */}
             <div className="w-full lg:w-[55%] flex flex-col justify-center text-center lg:text-left mt-8 lg:mt-0">
