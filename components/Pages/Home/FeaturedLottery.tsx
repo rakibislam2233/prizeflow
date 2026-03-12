@@ -1,76 +1,10 @@
+import { allLotteries } from "@/data/lotteryData";
 import { ArrowRight } from "lucide-react";
-import LotteryCard, { LotteryItem } from "./LotteryCard";
-
-const dummyItems: LotteryItem[] = [
-  {
-    id: "f1",
-    title: "Win brand new car",
-    titleColor: "text-red-500",
-    imageBg: "bg-emerald-100/50",
-    imageUrl: "https://v.ftcdn.net/05/85/68/73/360_F_585687358_R94T2K9R9Q1k0r70Z0K7M2z2Y2l0u0m2.jpg", // Replace with real car image
-    ticketPrice: 5,
-    drawDate: "March 20",
-    soldPercentage: 65,
-    ticketsLeft: 100,
-  },
-  {
-    id: "f2",
-    title: "Win a MacBook",
-    titleColor: "text-indigo-900",
-    imageBg: "bg-orange-50",
-    imageUrl: "https://v.ftcdn.net/05/85/68/73/360_F_585687358_R94T2K9R9Q1k0r70Z0K7M2z2Y2l0u0m2.jpg", // Replace with real macbook image
-    ticketPrice: 5,
-    drawDate: "March 20",
-    soldPercentage: 85,
-    ticketsLeft: 100,
-  },
-  {
-    id: "f3",
-    title: "Win a Brand Rolex",
-    titleColor: "text-indigo-900",
-    imageBg: "bg-blue-50",
-    imageUrl: "https://v.ftcdn.net/05/85/68/73/360_F_585687358_R94T2K9R9Q1k0r70Z0K7M2z2Y2l0u0m2.jpg", // Replace with real rolex image
-    ticketPrice: 5,
-    drawDate: "March 20",
-    soldPercentage: 35,
-    ticketsLeft: 100,
-  },
-  {
-    id: "f4",
-    title: "Win brand new car",
-    titleColor: "text-red-500",
-    imageBg: "bg-emerald-100/50",
-    imageUrl: "https://v.ftcdn.net/05/85/68/73/360_F_585687358_R94T2K9R9Q1k0r70Z0K7M2z2Y2l0u0m2.jpg",
-    ticketPrice: 5,
-    drawDate: "March 20",
-    soldPercentage: 88,
-    ticketsLeft: 100,
-  },
-  {
-    id: "f5",
-    title: "Win a MacBook",
-    titleColor: "text-indigo-900",
-    imageBg: "bg-orange-50",
-    imageUrl: "https://v.ftcdn.net/05/85/68/73/360_F_585687358_R94T2K9R9Q1k0r70Z0K7M2z2Y2l0u0m2.jpg",
-    ticketPrice: 5,
-    drawDate: "March 20",
-    soldPercentage: 80,
-    ticketsLeft: 100,
-  },
-  {
-    id: "f6",
-    title: "Win a Brand Rolex",
-    titleColor: "text-indigo-900",
-    imageBg: "bg-blue-50",
-    imageUrl: "https://v.ftcdn.net/05/85/68/73/360_F_585687358_R94T2K9R9Q1k0r70Z0K7M2z2Y2l0u0m2.jpg",
-    ticketPrice: 5,
-    drawDate: "March 20",
-    soldPercentage: 85,
-    ticketsLeft: 100,
-  },
-];
+import LotteryCard from "./LotteryCard";
 
 const FeaturedLottery = () => {
+  const dummyItems = allLotteries.slice(0, 6);
+
   return (
     <section className="mb-8 sm:mb-10 md:mb-12">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">

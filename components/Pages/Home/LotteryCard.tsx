@@ -1,3 +1,6 @@
+
+import Link from "next/link";
+
 export interface LotteryItem {
   id: string;
   title: string;
@@ -65,9 +68,11 @@ const LotteryCard = ({ item }: LotteryCardProps) => {
       </div>
 
       {/* Action Button */}
-      <button className="w-full py-2 sm:py-3 bg-primary text-white text-xs sm:text-sm font-medium rounded-[8px] transition-colors mt-2 cursor-pointer">
-        Entry now
-      </button>
+      <Link href={`/lottery/${item.id}`}>
+        <button className="w-full py-2 sm:py-3 bg-primary text-white text-xs sm:text-sm font-medium rounded-[8px] transition-colors mt-2 cursor-pointer hover:bg-primary/90">
+          Entry now
+        </button>
+      </Link>
     </div>
   );
 };

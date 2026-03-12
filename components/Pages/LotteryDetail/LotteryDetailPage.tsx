@@ -84,7 +84,7 @@ const LotteryDetailPage: React.FC<LotteryDetailPageProps> = ({ lottery }) => {
               </div>
               <div className="w-full bg-gray-200 h-3 rounded-full overflow-hidden">
                 <div
-                  className="bg-gradient-to-r from-primary to-primary/80 h-full rounded-full transition-all duration-500"
+                  className="bg-linear-to-r from-primary to-primary/80 h-full rounded-full transition-all duration-500"
                   style={{ width: `${lottery.soldPercentage}%` }}
                 />
               </div>
