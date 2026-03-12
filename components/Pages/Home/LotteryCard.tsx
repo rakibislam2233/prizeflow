@@ -57,7 +57,7 @@ const LotteryCard = ({ item }: LotteryCardProps) => {
       <div>
         <div className="w-full bg-gray-200 h-1 mt-1 rounded-full overflow-hidden">
           <div
-            className="bg-gray-800 h-full rounded-full"
+            className="bg-primary h-full rounded-full"
             style={{ width: `${item.soldPercentage}%` }}
           />
         </div>

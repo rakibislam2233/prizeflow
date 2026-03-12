@@ -19,7 +19,6 @@ const MobileMenu = ({ user, dashboardHref }: MobileMenuProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const pathname = usePathname();
   const isHomePage = pathname === "/";
-  const isDashboardPage = pathname?.startsWith("/dashboard");
 
   return (
     <div className="md:hidden flex items-center">

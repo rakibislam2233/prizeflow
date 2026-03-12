@@ -1,9 +1,9 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
-
 import { sliderData } from "@/data/sliderData";
+import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 import CountdownTimer from "./CountdownTimer";
 
 const HeroSection = () => {
@@ -77,7 +77,7 @@ const HeroSection = () => {
             </div>
 
             {/* Right Image Content */}
-            <div className="w-full lg:w-[45%] flex justify-center lg:justify-end relative h-[200px] sm:h-[300px] md:h-[350px] lg:h-[450px]">
+            <div className="w-full lg:w-[50%] flex justify-center lg:justify-end relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px]">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9, x: 40 }}
                 animate={{ opacity: 1, scale: 1, x: 0 }}
@@ -87,13 +87,15 @@ const HeroSection = () => {
                   type: "spring",
                   bounce: 0.3,
                 }}
-                className="relative w-full h-full flex items-center justify-center max-w-[500px] sm:max-w-[600px] lg:max-w-[650px] xl:max-w-[750px]"
+                className="relative w-full h-full flex items-center justify-center max-w-[700px] sm:max-w-[800px] lg:max-w-[900px] xl:max-w-[1000px]"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src={sliderData[currentSlide].image}
                   alt="Prize Showcase"
-                  className="object-contain w-full h-full drop-shadow-2xl"
+                  fill
+                  className="object-contain drop-shadow-2xl"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 50vw"
+                  priority
                 />
               </motion.div>
             </div>
