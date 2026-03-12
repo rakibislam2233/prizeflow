@@ -15,7 +15,7 @@ interface MobileMenuProps {
 }
 
 const MobileMenu = ({ user, dashboardHref }: MobileMenuProps) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
     <div className="md:hidden flex items-center">
@@ -103,15 +103,15 @@ const MobileMenu = ({ user, dashboardHref }: MobileMenuProps) => {
           </Link>
         </nav>
 
-        <div className="p-6 space-y-3 mt-auto border-t border-gray-50 bg-white/50">
+        <div className="p-6 space-y-3  border-t border-gray-50 bg-white/50">
           {user ? (
             <UserDropdown user={user} dashboardHref={dashboardHref || ""} />
           ) : (
-            <>
+            <div className="space-y-3">
               <Link href="/login" onClick={() => setIsOpen(false)}>
                 <Button
                   variant="outline"
-                  className="w-full h-12 border-primary text-primary hover:bg-primary/5 font-bold rounded"
+                  className="w-full h-12 border-primary text-primary hover:bg-primary/5 font-bold rounded mb-5"
                 >
                   Login
                 </Button>
@@ -121,7 +121,7 @@ const MobileMenu = ({ user, dashboardHref }: MobileMenuProps) => {
                   Sign Up
                 </Button>
               </Link>
-            </>
+            </div>
           )}
         </div>
       </aside>

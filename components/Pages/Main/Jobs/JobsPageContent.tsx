@@ -36,7 +36,7 @@ export default function JobsPageContent() {
 
   return (
     <div className="bg-gray-50 min-h-screen pt-24 pb-16">
-      <div className="container mx-auto px-6 md:px-16">
+      <div className="container mx-auto px-4 md:px-8">
         <div className="mb-12 ">
           <h1 className="text-4xl  text-[#25324B] mb-2 font-bold tracking-tighter">
             Find Jobs

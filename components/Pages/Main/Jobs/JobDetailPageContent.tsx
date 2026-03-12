@@ -53,7 +53,7 @@ export default function JobDetailPageContent({
 
   return (
     <div className="bg-gray-50 min-h-screen pt-24 pb-16">
-      <div className="container mx-auto px-6 md:px-16">
+      <div className="container mx-auto px-4 md:px-8">
         {/* Back Link */}
         <Link
           href="/jobs"

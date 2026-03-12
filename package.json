@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --experimental-https --webpack",
+    "kill-port": "powershell -ExecutionPolicy Bypass -File ./kill-port-3000.ps1",
+    "dev": "npm run kill-port && next dev --experimental-https --webpack",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"

@@ -3,6 +3,7 @@ import FilterBar from "@/components/Pages/Home/FilterBar";
 import FeaturedLottery from "@/components/Pages/Home/FeaturedLottery";
 import WinningBigLottery from "@/components/Pages/Home/WinningBigLottery";
 import DrawSoonSidebar from "@/components/Pages/Home/DrawSoonSidebar";
+import HeroSection from "@/components/Pages/Home/HeroSection";
 
 export const metadata = {
   title: "PrizeFlow | Lottery & Giveaway",
@@ -11,17 +12,18 @@ export const metadata = {
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-[#f5f6f8] py-8 px-4 md:px-8 lg:px-12">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8">
+    <div className="w-full min-h-screen">
+      <HeroSection />
+      <div className="container py-8 px-4 md:px-8 lg:px-12 mx-auto flex flex-col lg:flex-row gap-8">
         {/* Main Content */}
-        <div className="flex-grow lg:w-3/4">
+        <div className="grow lg:w-3/4">
           <FilterBar />
           <FeaturedLottery />
           <WinningBigLottery />
         </div>
 
         {/* Sidebar */}
-        <aside className="lg:w-1/4 flex-shrink-0">
+        <aside className="lg:w-1/4 shrink-0">
           <div className="sticky top-8">
             <DrawSoonSidebar />
           </div>

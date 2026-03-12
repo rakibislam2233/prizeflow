@@ -4,12 +4,12 @@ import JobCard from "@/components/Card/JobCard";
 import { Company, Job } from "@/interface/job.interface";
 import { getAllJobs, getCompanyById } from "@/services/job.service";
 import {
-  ArrowLeft,
-  Briefcase,
-  Calendar,
-  Globe,
-  MapPin,
-  Users,
+    ArrowLeft,
+    Briefcase,
+    Calendar,
+    Globe,
+    MapPin,
+    Users,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -57,7 +57,7 @@ export default function CompanyDetailPageContent({
 
   return (
     <div className="bg-gray-50 min-h-screen pt-24 pb-16 ">
-      <div className="container mx-auto px-6 md:px-16">
+      <div className="container mx-auto px-4 md:px-8">
         {/* Back Link */}
         <Link
           href="/companies"

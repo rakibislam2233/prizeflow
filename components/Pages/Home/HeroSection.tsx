@@ -35,7 +35,7 @@ const HeroSection = () => {
         <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[80%] bg-[#811AD6]/40 -skew-x-40 origin-bottom-right" />
       </div>
 
-      <div className="container mx-auto px-6 md:px-16 relative z-10 w-full pt-28 lg:pt-16 pb-20 lg:pb-0">
+      <div className="container mx-auto px-4 md:px-14 relative z-10 w-full pt-28 lg:pt-16 pb-20 lg:pb-0">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
