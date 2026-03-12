@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
       "@radix-ui/react-icons",
     ],
   },
+  turbopack: {},
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.fallback = {
