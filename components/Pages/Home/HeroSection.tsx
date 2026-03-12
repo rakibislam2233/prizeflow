@@ -64,12 +64,12 @@ const HeroSection = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 items-center justify-center lg:justify-start">
-                <Button className="bg-primary hover:bg-primary/90 text-white border-0 h-12 px-6 sm:px-8 rounded cursor-pointer text-base font-semibold shadow-lg shadow-primary/20 transition-all w-full sm:w-auto">
+                <Button className="bg-primary hover:bg-primary/90 text-white border-0 h-12 px-6 sm:px-8 cursor-pointer text-base  transition-all w-full sm:w-auto">
                   Entry now
                 </Button>
                 <Button
                   variant="outline"
-                  className="bg-transparent border-[#29427D] text-[#869FD1] hover:text-white hover:bg-[#29427D]/40 h-12 px-6 sm:px-8 rounded cursor-pointer text-base transition-all w-full sm:w-auto"
+                  className="bg-transparent border-[#29427D] text-[#869FD1] hover:text-white hover:bg-[#29427D]/40 h-12 px-6 sm:px-8 cursor-pointer text-base transition-all w-full sm:w-auto"
                 >
                   How it work
                 </Button>

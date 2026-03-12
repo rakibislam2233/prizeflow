@@ -1,16 +1,17 @@
 "use client";
-import logoWhite from "@/public/asset/logo/logo2.png";
 import logoBlack from "@/public/asset/logo/logo.png";
+import logoWhite from "@/public/asset/logo/logo2.png";
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
 
 const Logo = () => {
-  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
+    setIsClient(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
@@ -18,22 +19,18 @@ const Logo = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const logoSrc = isClient && isScrolled ? logoWhite : logoBlack;
+
   return (
-    <Link href="/">
-      <Image
-        src={
-          !isScrolled && pathname === "/"
-            ? logoBlack
-            : isScrolled
-            ? logoWhite
-            : logoBlack
-        }
-        alt="Logo"
-        width={75}
-        height={75}
-        className="rounded-full"
-      />
-    </Link>
+    <Image
+      src={logoSrc}
+      alt="Logo"
+      width={75}
+      height={75}
+      className="rounded-full cursor-pointer"
+      onClick={() => router.push("/")}
+    />
   );
 };
 
