@@ -113,6 +113,13 @@ const MobileMenu = ({ user, dashboardHref }: MobileMenuProps) => {
           >
             Notifications
           </Link>
+          <Link
+            href="/dashboard/settings"
+            onClick={() => setIsOpen(false)}
+            className="flex items-center gap-3 px-4 py-4 text-base font-bold text-gray-600 hover:text-primary hover:bg-white transition-all rounded-lg"
+          >
+            Settings
+          </Link>
           
           <div className="px-4 mb-4 mt-6">
             <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">

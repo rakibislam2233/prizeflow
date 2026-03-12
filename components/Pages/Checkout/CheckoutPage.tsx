@@ -42,7 +42,7 @@ const CheckoutPage: React.FC<CheckoutPageProps> = ({ lottery, ticketQuantity }) 
   };
 
   return (
-    <div className="w-full pt-20">
+    <section>
       {/* Header Section */}
       <div className="relative">
         <div className="bg-linear-to-b from-primary/10 to-white/50">
@@ -264,7 +264,7 @@ const CheckoutPage: React.FC<CheckoutPageProps> = ({ lottery, ticketQuantity }) 
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

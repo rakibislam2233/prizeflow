@@ -30,8 +30,8 @@ const HowItWorksSection: React.FC = () => {
   ];
 
   return (
-    <section className="w-full pt-32 py-16 bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 md:px-8">
+    <section className="w-full pt-16 lg:pt-24 py-16 bg-gray-50">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 py-8 md:py-12">
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">

@@ -6,9 +6,11 @@ export default function UserDashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="w-full container mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="mb-6 lg:mb-8">
-        <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">My Dashboard</h1>
+    <div className="w-full container mx-auto px-4 sm:px-6 lg:px-8 pt-16 lg:pt-24">
+      <div className="py-8 md:py-12 ">
+        <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">
+          My Dashboard
+        </h1>
         <p className="text-gray-600 text-sm lg:text-base">
           Track your entries, wins, and account activity
         </p>

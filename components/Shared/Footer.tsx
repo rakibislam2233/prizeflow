@@ -147,14 +147,6 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/careers"
-                  className="hover:text-white transition-colors"
-                >
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/press"
                   className="hover:text-white transition-colors"
                 >
@@ -206,30 +198,30 @@ const Footer = () => {
           {/* Newsletter */}
           <div className="lg:col-span-2">
             <h4 className="text-lg font-semibold mb-6 text-white">Follow Us</h4>
-            <div className="flex gap-3 mb-6">
+            <div className="flex gap-2 mb-6">
               <Link
                 href="#"
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-white"
+                className="size-8.5 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-white"
               >
-                <Facebook className="w-5 h-5" />
+                <Facebook className="size-4" />
               </Link>
               <Link
                 href="#"
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-white"
+                className="size-8.5 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-white"
               >
-                <Twitter className="w-5 h-5" />
+                <Twitter className="size-4" />
               </Link>
               <Link
                 href="#"
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-white"
+                className="size-8.5 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-white"
               >
-                <Instagram className="w-5 h-5" />
+                <Instagram className="size-4" />
               </Link>
               <Link
                 href="#"
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-white"
+                className="size-8.5 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors text-white"
               >
-                <Linkedin className="w-5 h-5" />
+                <Linkedin className="size-4" />
               </Link>
             </div>
             <p className="text-gray-400 text-sm mb-4">

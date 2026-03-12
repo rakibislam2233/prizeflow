@@ -1,10 +1,10 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardTitle,
+  Card,
+  CardContent,
+  CardDescription,
+  CardTitle,
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { Award, BellRing, DollarSign, LayoutGrid, User } from "lucide-react";
@@ -13,9 +13,9 @@ import { usePathname } from "next/navigation";
 
 const DashboardHome = () => {
   const pathname = usePathname();
-  
+
   const menuItems = [
-    { name: "My Profile", icon: User, href: "/dashboard" },
+    { name: "My Profile", icon: User, href: "/dashboard/profile" },
     {
       name: "My entries",
       icon: LayoutGrid,
@@ -27,6 +27,7 @@ const DashboardHome = () => {
       href: "/dashboard/transactions",
     },
     { name: "Notifications", icon: BellRing, href: "/dashboard/notifications" },
+    { name: "Settings", icon: Settings, href: "/dashboard/settings" },
   ];
 
   return (
@@ -58,7 +59,7 @@ const DashboardHome = () => {
       </aside>
 
       {/* Main content */}
-      <main className="flex-1 px-4 lg:px-8">
+      <main className="w-full flex-1 px-4">
         {/* Stats Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 mb-6 lg:mb-8">
           <Card className="p-4 flex items-center">
@@ -66,7 +67,9 @@ const DashboardHome = () => {
               <LayoutGrid className="h-6 w-6 text-purple-600" />
             </div>
             <div>
-              <CardTitle className="text-xl lg:text-2xl font-bold">10</CardTitle>
+              <CardTitle className="text-xl lg:text-2xl font-bold">
+                10
+              </CardTitle>
               <CardDescription>Total entries</CardDescription>
               <p className="text-sm text-gray-500">This month</p>
             </div>
@@ -88,7 +91,9 @@ const DashboardHome = () => {
               <DollarSign className="h-6 w-6 text-green-600" />
             </div>
             <div>
-              <CardTitle className="text-xl lg:text-2xl font-bold">£125,450</CardTitle>
+              <CardTitle className="text-xl lg:text-2xl font-bold">
+                £125,450
+              </CardTitle>
               <CardDescription>Total Spent</CardDescription>
               <p className="text-sm text-gray-500">All time</p>
             </div>

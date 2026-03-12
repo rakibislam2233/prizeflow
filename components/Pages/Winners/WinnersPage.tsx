@@ -24,7 +24,8 @@ const dummyWinners: WinnerItem[] = [
     date: "26 march 2026",
     ticketNumber: "#1234",
     prize: "Cash $500000",
-    imageUrl: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+    imageUrl:
+      "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
   },
   {
     id: "w2",
@@ -32,7 +33,8 @@ const dummyWinners: WinnerItem[] = [
     date: "25 march 2026",
     ticketNumber: "#1235",
     prize: "Luxury car",
-    imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    imageUrl:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
   },
   {
     id: "w3",
@@ -40,7 +42,8 @@ const dummyWinners: WinnerItem[] = [
     date: "24 march 2026",
     ticketNumber: "#1236",
     prize: "Dubai trip",
-    imageUrl: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+    imageUrl:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
   },
   {
     id: "w4",
@@ -48,7 +51,8 @@ const dummyWinners: WinnerItem[] = [
     date: "23 march 2026",
     ticketNumber: "#1237",
     prize: "Gaming PC",
-    imageUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    imageUrl:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
   },
   {
     id: "w5",
@@ -56,7 +60,8 @@ const dummyWinners: WinnerItem[] = [
     date: "22 march 2026",
     ticketNumber: "#1238",
     prize: "MacBook",
-    imageUrl: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=150&h=150&fit=crop&crop=face",
+    imageUrl:
+      "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=150&h=150&fit=crop&crop=face",
   },
   {
     id: "w6",
@@ -64,7 +69,8 @@ const dummyWinners: WinnerItem[] = [
     date: "21 march 2026",
     ticketNumber: "#1239",
     prize: "iPhone 17 pro",
-    imageUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+    imageUrl:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
   },
 ];
 
@@ -81,14 +87,15 @@ const WinnersPage: React.FC = () => {
   ];
 
   // Filter winners based on search
-  const filteredWinners = dummyWinners.filter((winner) =>
-    winner.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    winner.prize.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredWinners = dummyWinners.filter(
+    (winner) =>
+      winner.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      winner.prize.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   return (
-    <div className="w-full pt-20 min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 py-8">
+    <div className="w-full min-h-screen bg-gray-50 pt-16 lg:pt-24">
+      <div className="w-full container mx-auto px-4 sm:px-6 md:px-8 py-8 md:py-12">
         {/* Header Section */}
         <div className="text-center mb-12">
           <div className="flex justify-center mb-4">
@@ -96,9 +103,12 @@ const WinnersPage: React.FC = () => {
               <Trophy className="w-8 h-8 text-yellow-600" />
             </div>
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Our winner's</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            Our winner's
+          </h1>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Celebrating real people who've won amazing prizes. Every winner is verified and publicly announced.
+            Celebrating real people who've won amazing prizes. Every winner is
+            verified and publicly announced.
           </p>
         </div>
 
@@ -113,7 +123,9 @@ const WinnersPage: React.FC = () => {
             <p className="text-gray-600">Total prize awarded</p>
           </div>
           <div className="bg-white rounded-lg p-6 text-center shadow-sm">
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">All Category</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+              All Category
+            </h2>
             <p className="text-gray-600">Categories covered</p>
           </div>
         </div>
@@ -151,7 +163,10 @@ const WinnersPage: React.FC = () => {
 
         {/* Load More Button */}
         <div className="text-center mt-12">
-          <Button variant="outline" className="px-8 py-3 rounded-lg font-semibold border-2 border-gray-300 text-gray-700 hover:border-primary hover:text-primary transition-colors">
+          <Button
+            variant="outline"
+            className="px-8 py-3 rounded-lg font-semibold border-2 border-gray-300 text-gray-700 hover:border-primary hover:text-primary transition-colors"
+          >
             Load more
           </Button>
         </div>

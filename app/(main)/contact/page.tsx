@@ -70,7 +70,7 @@ const faqs = [
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="w-full bg-gray-50">
       {/* Header */}
       <div className="bg-primary text-white py-16">
         <div className="container mx-auto px-4 sm:px-6 md:px-8 text-center">
