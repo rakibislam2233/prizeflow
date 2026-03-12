@@ -2,6 +2,7 @@ import DrawSoonSidebar from "@/components/Pages/Home/DrawSoonSidebar";
 import FeaturedLottery from "@/components/Pages/Home/FeaturedLottery";
 import FilterBar from "@/components/Pages/Home/FilterBar";
 import HeroSection from "@/components/Pages/Home/HeroSection";
+import RecentWinners from "@/components/Pages/Home/RecentWinners";
 import WinningBigLottery from "@/components/Pages/Home/WinningBigLottery";
 
 export const metadata = {
@@ -20,12 +21,12 @@ const HomePage = () => {
           <FeaturedLottery />
           <WinningBigLottery />
         </div>
-
         {/* Sidebar */}
         <aside className="col-span-1 xl:col-span-1 mt-8 xl:mt-14">
           <DrawSoonSidebar />
         </aside>
       </div>
+      <RecentWinners />
     </div>
   );
 };

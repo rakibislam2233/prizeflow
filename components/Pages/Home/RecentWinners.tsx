@@ -1,5 +1,5 @@
-import React from "react";
 import { ArrowRight } from "lucide-react";
+import React from "react";
 
 export interface WinnerItem {
   id: string;
@@ -65,7 +65,7 @@ const dummyWinners: WinnerItem[] = [
 
 const RecentWinners: React.FC<RecentWinnersProps> = () => {
   return (
-    <section className="mb-8 sm:mb-10 md:mb-12">
+    <section className="w-full container mx-auto px-4 sm:px-6 md:px-8 pb-12">
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
         <div>
