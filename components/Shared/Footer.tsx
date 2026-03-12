@@ -77,7 +77,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 mb-16">
           {/* Logo & Info */}
           <div className="lg:col-span-4 flex flex-col items-start gap-6">
-            <Image src={logo} alt="PrizeFlow Logo" width={120} height={40} />
+            <Image src={logo} alt="PrizeFlow Logo" width={90} height={40} />
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
               Your trusted platform for online lottery and competitions. Win
               amazing prizes with fair and transparent draws.

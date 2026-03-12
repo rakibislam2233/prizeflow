@@ -21,14 +21,9 @@ const MobileMenu = ({ user, dashboardHref }: MobileMenuProps) => {
   const isHomePage = pathname === "/";
   const isDashboardPage = pathname?.startsWith("/dashboard");
 
-  // Don't show mobile menu toggle on dashboard pages
-  if (isDashboardPage) {
-    return null;
-  }
-
   return (
     <div className="md:hidden flex items-center">
-      {/* Mobile Menu Toggle */}
+      {/* Mobile Menu Toggle - Always visible on mobile */}
       <button
         onClick={() => setIsOpen(true)}
         className={cn(
