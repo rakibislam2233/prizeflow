@@ -14,6 +14,7 @@ export const allLotteries: LotteryItem[] = [
     soldPercentage: 65,
     ticketsLeft: 350,
     category: "Car",
+    isNew: true,
   },
   {
     id: "f2",
@@ -27,6 +28,7 @@ export const allLotteries: LotteryItem[] = [
     soldPercentage: 80,
     ticketsLeft: 200,
     category: "Car",
+    discount: 15,
   },
   {
     id: "f3",
@@ -53,6 +55,7 @@ export const allLotteries: LotteryItem[] = [
     soldPercentage: 90,
     ticketsLeft: 100,
     category: "Car",
+    discount: 10,
   },
   {
     id: "f5",
@@ -81,6 +84,8 @@ export const allLotteries: LotteryItem[] = [
     soldPercentage: 85,
     ticketsLeft: 75,
     category: "Tech",
+    isNew: true,
+    discount: 20,
   },
   {
     id: "f7",
@@ -107,6 +112,7 @@ export const allLotteries: LotteryItem[] = [
     soldPercentage: 78,
     ticketsLeft: 110,
     category: "Tech",
+    isNew: true,
   },
   {
     id: "f9",
@@ -133,6 +139,7 @@ export const allLotteries: LotteryItem[] = [
     soldPercentage: 70,
     ticketsLeft: 150,
     category: "Tech",
+    discount: 25,
   },
 
   // ⌚ LUXURY
@@ -161,6 +168,7 @@ export const allLotteries: LotteryItem[] = [
     soldPercentage: 45,
     ticketsLeft: 275,
     category: "Luxury",
+    isNew: true,
   },
   {
     id: "w3",
@@ -174,6 +182,7 @@ export const allLotteries: LotteryItem[] = [
     soldPercentage: 72,
     ticketsLeft: 140,
     category: "Luxury",
+    discount: 30,
   },
   {
     id: "w4",
@@ -202,6 +211,7 @@ export const allLotteries: LotteryItem[] = [
     soldPercentage: 35,
     ticketsLeft: 650,
     category: "Property",
+    isNew: true,
   },
   {
     id: "w6",
@@ -215,6 +225,7 @@ export const allLotteries: LotteryItem[] = [
     soldPercentage: 25,
     ticketsLeft: 750,
     category: "Property",
+    discount: 15,
   },
 
   // ✈️ TRAVEL
@@ -230,6 +241,7 @@ export const allLotteries: LotteryItem[] = [
     soldPercentage: 68,
     ticketsLeft: 160,
     category: "Travel",
+    isNew: true,
   },
   {
     id: "w8",
@@ -256,6 +268,7 @@ export const allLotteries: LotteryItem[] = [
     soldPercentage: 62,
     ticketsLeft: 190,
     category: "Travel",
+    discount: 20,
   },
 
   // 🏍️ BIKES
@@ -284,6 +297,8 @@ export const allLotteries: LotteryItem[] = [
     soldPercentage: 83,
     ticketsLeft: 85,
     category: "Car",
+    isNew: true,
+    discount: 10,
   },
 
   // 💰 CASH
@@ -299,6 +314,7 @@ export const allLotteries: LotteryItem[] = [
     soldPercentage: 95,
     ticketsLeft: 25,
     category: "Cash",
+    isNew: true,
   },
   {
     id: "c2",
@@ -312,6 +328,7 @@ export const allLotteries: LotteryItem[] = [
     soldPercentage: 48,
     ticketsLeft: 520,
     category: "Cash",
+    discount: 5,
   },
   {
     id: "c3",
@@ -325,6 +342,8 @@ export const allLotteries: LotteryItem[] = [
     soldPercentage: 30,
     ticketsLeft: 700,
     category: "Cash",
+    isNew: true,
+    discount: 10,
   },
 
   // 🎮 FUN / GADGETS
@@ -353,6 +372,7 @@ export const allLotteries: LotteryItem[] = [
     soldPercentage: 44,
     ticketsLeft: 280,
     category: "Gadget",
+    isNew: true,
   },
   {
     id: "g3",
@@ -366,6 +386,7 @@ export const allLotteries: LotteryItem[] = [
     soldPercentage: 38,
     ticketsLeft: 310,
     category: "Gadget",
+    discount: 15,
   },
   {
     id: "g4",
@@ -379,6 +400,8 @@ export const allLotteries: LotteryItem[] = [
     soldPercentage: 66,
     ticketsLeft: 170,
     category: "Gadget",
+    isNew: true,
+    discount: 20,
   },
   {
     id: "g5",
