@@ -1,6 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Lock, Shield } from "lucide-react";
+import { FormInput } from "@/components/ui/form-input";
+import { ArrowLeft, CreditCard, Lock, Mail, MapPin, Phone, Shield, User } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
 import type { LotteryItem } from "../Home/LotteryCard";
@@ -136,6 +137,8 @@ const CheckoutPage: React.FC<CheckoutPageProps> = ({ lottery, ticketQuantity }) 
                     value={formData.firstName}
                     onChange={handleInputChange}
                     required
+                    placeholder="Enter your first name"
+                    icon={User}
                   />
                   <FormInput
                     label="Last Name"
@@ -143,6 +146,8 @@ const CheckoutPage: React.FC<CheckoutPageProps> = ({ lottery, ticketQuantity }) 
                     value={formData.lastName}
                     onChange={handleInputChange}
                     required
+                    placeholder="Enter your last name"
+                    icon={User}
                   />
                 </div>
 
@@ -153,6 +158,7 @@ const CheckoutPage: React.FC<CheckoutPageProps> = ({ lottery, ticketQuantity }) 
                   value={formData.email}
                   onChange={handleInputChange}
                   required
+                  placeholder="Enter your email address"
                   icon={Mail}
                 />
 
@@ -163,6 +169,7 @@ const CheckoutPage: React.FC<CheckoutPageProps> = ({ lottery, ticketQuantity }) 
                   value={formData.phone}
                   onChange={handleInputChange}
                   required
+                  placeholder="Enter your phone number"
                   icon={Phone}
                 />
 
@@ -172,6 +179,7 @@ const CheckoutPage: React.FC<CheckoutPageProps> = ({ lottery, ticketQuantity }) 
                   value={formData.address}
                   onChange={handleInputChange}
                   required
+                  placeholder="Enter your billing address"
                   icon={MapPin}
                 />
 
@@ -183,6 +191,7 @@ const CheckoutPage: React.FC<CheckoutPageProps> = ({ lottery, ticketQuantity }) 
                       value={formData.city}
                       onChange={handleInputChange}
                       required
+                      placeholder="Enter your city"
                     />
                   </div>
                   <div>
@@ -192,6 +201,7 @@ const CheckoutPage: React.FC<CheckoutPageProps> = ({ lottery, ticketQuantity }) 
                       value={formData.postalCode}
                       onChange={handleInputChange}
                       required
+                      placeholder="Enter postal code"
                     />
                   </div>
                 </div>

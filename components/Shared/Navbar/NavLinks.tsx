@@ -8,8 +8,8 @@ const NavLinks = () => {
 
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "/compentition", label: "Compentition" },
-    { href: "/winner", label: "Winner" },
+    { href: "/competition", label: "Competition" },
+    { href: "/winners", label: "Winners" },
     { href: "/how-it-works", label: "How it works" },
   ];
 
