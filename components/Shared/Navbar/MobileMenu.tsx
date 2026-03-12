@@ -4,7 +4,7 @@ import { IUser } from "@/interface/user.interface";
 import { cn } from "@/lib/utils";
 import { X } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { HiMenuAlt2 } from "react-icons/hi";
 import Logo from "./Logo";
 import UserDropdown from "./UserDropdown";
@@ -16,13 +16,26 @@ interface MobileMenuProps {
 
 const MobileMenu = ({ user, dashboardHref }: MobileMenuProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div className="md:hidden flex items-center">
       {/* Mobile Menu Toggle */}
       <button
         onClick={() => setIsOpen(true)}
-        className="text-gray-700 border border-[#D6DDEB] rounded-full p-2"
+        className={cn(
+          "text-white border border-[#D6DDEB] rounded-full p-2",
+          isScrolled && "text-black",
+        )}
         aria-label="Toggle navigation menu"
       >
         <HiMenuAlt2 className="w-6 h-6" />
