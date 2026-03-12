@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { FormInput } from "@/components/ui/form-input";
-import { Calendar, Edit3, Mail, MapPin, Phone, Save, Shield, User, X } from "lucide-react";
+import { Calendar, Edit3, Mail, MapPin, Phone, Save, User, X } from "lucide-react";
 import { useState } from "react";
 
 export default function ProfilePage() {
@@ -160,136 +160,6 @@ export default function ProfilePage() {
                 Save change
               </Button>
             )}
-          </form>
-        </div>
-      </div>
-
-      {/* Change Password Form */}
-      <div className="bg-white rounded-lg border border-gray-200">
-        <div className="p-4 lg:p-6 border-b border-gray-200">
-          <h2 className="flex items-center gap-2 text-lg font-semibold">
-            <Shield className="w-5 h-5" />
-            Change password
-          </h2>
-        </div>
-        <div className="p-4 lg:p-6">
-          <form className="space-y-4">
-            <div>
-              <label className="text-sm font-medium mb-2 block">Current password</label>
-              <FormInput
-                type="password"
-                value={formData.currentPassword}
-                onChange={(e) => handleInputChange("currentPassword", e.target.value)}
-                disabled={!isEditing}
-                placeholder="Current password"
-              />
-            </div>
-            <div>
-              <label className="text-sm font-medium mb-2 block">New password</label>
-              <FormInput
-                type="password"
-                value={formData.newPassword}
-                onChange={(e) => handleInputChange("newPassword", e.target.value)}
-                disabled={!isEditing}
-                placeholder="New password"
-              />
-            </div>
-            <div>
-              <label className="text-sm font-medium mb-2 block">Confirm password</label>
-              <FormInput
-                type="password"
-                value={formData.confirmPassword}
-                onChange={(e) => handleInputChange("confirmPassword", e.target.value)}
-                disabled={!isEditing}
-                placeholder="Confirm password"
-              />
-            </div>
-            
-            {isEditing && (
-              <Button type="submit" variant="outline" className="w-full sm:w-auto">
-                Save change
-              </Button>
-            )}
-          </form>
-        </div>
-      </div>
-
-      {/* Notification Preferences Form */}
-      <div className="bg-white rounded-lg border border-gray-200">
-        <div className="p-4 lg:p-6 border-b border-gray-200">
-          <h2 className="text-lg font-semibold">Notification preference</h2>
-        </div>
-        <div className="p-4 lg:p-6">
-          <form className="space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-              <div>
-                <p className="font-medium">Draw reminder</p>
-                <p className="text-sm text-gray-600">Get notified before draws</p>
-              </div>
-              <label className="relative inline-flex items-center cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={formData.notifications.drawReminder}
-                  onChange={(e) => handleNotificationChange("drawReminder", e.target.checked)}
-                  disabled={!isEditing}
-                  className="sr-only peer"
-                />
-                <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
-              </label>
-            </div>
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-              <div>
-                <p className="font-medium">Entry Confirmations</p>
-                <p className="text-sm text-gray-600">Confirm your entries</p>
-              </div>
-              <label className="relative inline-flex items-center cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={formData.notifications.entryConfirmations}
-                  onChange={(e) => handleNotificationChange("entryConfirmations", e.target.checked)}
-                  disabled={!isEditing}
-                  className="sr-only peer"
-                />
-                <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
-              </label>
-            </div>
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-              <div>
-                <p className="font-medium">Winner Announcements</p>
-                <p className="text-sm text-gray-600">Know when you win</p>
-              </div>
-              <label className="relative inline-flex items-center cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={formData.notifications.winnerAnnouncements}
-                  onChange={(e) => handleNotificationChange("winnerAnnouncements", e.target.checked)}
-                  disabled={!isEditing}
-                  className="sr-only peer"
-                />
-                <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
-              </label>
-            </div>
-            
-            {isEditing && (
-              <Button type="submit" variant="outline" className="w-full sm:w-auto">
-                Save change
-              </Button>
-            )}
-          </form>
-        </div>
-      </div>
-
-      {/* Danger Zone */}
-      <div className="bg-white rounded-lg border border-red-200">
-        <div className="p-4 lg:p-6 border-b border-red-200">
-          <h2 className="text-lg font-semibold text-red-600">Danger zone</h2>
-        </div>
-        <div className="p-4 lg:p-6">
-          <form className="space-y-3">
-            <p className="text-sm text-gray-600">Permanently delete your account and all data</p>
-            <Button type="submit" variant="outline" className="w-full sm:w-auto text-red-600 border-red-300 hover:bg-red-50">
-              Delete account
-            </Button>
           </form>
         </div>
       </div>

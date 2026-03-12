@@ -7,7 +7,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { Award, BellRing, DollarSign, LayoutGrid, User } from "lucide-react";
+import {
+  Award,
+  BellRing,
+  DollarSign,
+  LayoutGrid,
+  Settings,
+  User,
+} from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 

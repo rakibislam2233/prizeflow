@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { FormInput } from "@/components/ui/form-input";
-import { Shield, X, Save, LogOut } from "lucide-react";
+import { LogOut, Save, Shield, X } from "lucide-react";
 import { useState } from "react";
 
 export default function SettingsPage() {
@@ -111,9 +111,14 @@ export default function SettingsPage() {
             </div>
             
             {isEditing && (
-              <Button type="submit" variant="outline" className="w-full sm:w-auto">
-                Save change
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-3 pt-4">
+                <Button type="submit" variant="outline" className="w-full sm:w-auto">
+                  Update Password
+                </Button>
+                <Button type="button" variant="ghost" className="w-full sm:w-auto" onClick={handleCancel}>
+                  Cancel
+                </Button>
+              </div>
             )}
           </form>
         </div>
