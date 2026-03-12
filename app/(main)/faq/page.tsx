@@ -1,7 +1,7 @@
 import FAQPage from "@/components/Pages/FAQ/FAQPage";
 
 export const metadata = {
-  title: "FAQ | PrizeFlow",
+  title: "FAQ | PrizeFlow ",
   description: "Find answers to common questions about PrizeFlow.",
 };
 

@@ -13,7 +13,7 @@ const NavLinks = () => {
         <Link
           key={link.href}
           href={link.href}
-          className="transition-colors text-white group-data-[scrolled=true]:text-gray-700 hover:text-primary group-data-[scrolled=true]:hover:text-primary"
+          className="transition-colors text-white group-data-[scrolled=true]:text-gray-900 hover:text-primary group-data-[scrolled=true]:hover:text-primary"
         >
           {link.label}
         </Link>

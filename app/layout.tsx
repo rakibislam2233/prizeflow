@@ -10,8 +10,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Storify - File Management System",
-  description: "A subscription-based file and folder management system.",
+  title: "PrizeFlow | Lottery & Giveaway",
+  description: "Win big prizes including Cash, Tech, Cars, and Properties in fair and exciting lottery competitions.",
 };
 
 export default function RootLayout({

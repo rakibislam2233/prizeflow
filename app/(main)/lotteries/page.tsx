@@ -1,7 +1,7 @@
 import LotteriesPage from "@/components/Pages/Lotteries/LotteriesPage";
 
 export const metadata = {
-  title: "All Lotteries | PrizeFlow",
+  title: "All Lotteries | PrizeFlow ",
   description: "Browse all available lotteries and competitions on PrizeFlow.",
 };
 
