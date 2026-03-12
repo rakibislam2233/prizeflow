@@ -11,6 +11,7 @@ export interface LotteryItem {
   drawDate: string;
   soldPercentage: number;
   ticketsLeft: number;
+  category: string;
 }
 
 interface LotteryCardProps {

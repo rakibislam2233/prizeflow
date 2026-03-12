@@ -13,6 +13,7 @@ export const allLotteries: LotteryItem[] = [
     drawDate: "April 5",
     soldPercentage: 65,
     ticketsLeft: 350,
+    category: "Car",
   },
   {
     id: "f2",
@@ -25,6 +26,7 @@ export const allLotteries: LotteryItem[] = [
     drawDate: "April 10",
     soldPercentage: 80,
     ticketsLeft: 200,
+    category: "Car",
   },
   {
     id: "f3",
@@ -37,6 +39,7 @@ export const allLotteries: LotteryItem[] = [
     drawDate: "April 15",
     soldPercentage: 55,
     ticketsLeft: 450,
+    category: "Car",
   },
   {
     id: "f4",
@@ -49,6 +52,7 @@ export const allLotteries: LotteryItem[] = [
     drawDate: "April 20",
     soldPercentage: 90,
     ticketsLeft: 100,
+    category: "Car",
   },
   {
     id: "f5",
@@ -61,6 +65,7 @@ export const allLotteries: LotteryItem[] = [
     drawDate: "April 25",
     soldPercentage: 40,
     ticketsLeft: 600,
+    category: "Car",
   },
 
   // 💻 TECH
@@ -75,6 +80,7 @@ export const allLotteries: LotteryItem[] = [
     drawDate: "March 28",
     soldPercentage: 85,
     ticketsLeft: 75,
+    category: "Tech",
   },
   {
     id: "f7",
@@ -87,6 +93,7 @@ export const allLotteries: LotteryItem[] = [
     drawDate: "March 30",
     soldPercentage: 92,
     ticketsLeft: 40,
+    category: "Tech",
   },
   {
     id: "f8",
@@ -99,6 +106,7 @@ export const allLotteries: LotteryItem[] = [
     drawDate: "April 1",
     soldPercentage: 78,
     ticketsLeft: 110,
+    category: "Tech",
   },
   {
     id: "f9",
@@ -111,6 +119,7 @@ export const allLotteries: LotteryItem[] = [
     drawDate: "April 3",
     soldPercentage: 60,
     ticketsLeft: 200,
+    category: "Tech",
   },
   {
     id: "f10",
@@ -123,6 +132,7 @@ export const allLotteries: LotteryItem[] = [
     drawDate: "April 5",
     soldPercentage: 70,
     ticketsLeft: 150,
+    category: "Tech",
   },
 
   // ⌚ LUXURY
@@ -137,6 +147,7 @@ export const allLotteries: LotteryItem[] = [
     drawDate: "April 8",
     soldPercentage: 88,
     ticketsLeft: 60,
+    category: "Luxury",
   },
   {
     id: "w2",
@@ -149,6 +160,7 @@ export const allLotteries: LotteryItem[] = [
     drawDate: "April 12",
     soldPercentage: 45,
     ticketsLeft: 275,
+    category: "Luxury",
   },
   {
     id: "w3",
@@ -161,6 +173,7 @@ export const allLotteries: LotteryItem[] = [
     drawDate: "April 14",
     soldPercentage: 72,
     ticketsLeft: 140,
+    category: "Luxury",
   },
   {
     id: "w4",
@@ -173,6 +186,7 @@ export const allLotteries: LotteryItem[] = [
     drawDate: "April 18",
     soldPercentage: 55,
     ticketsLeft: 225,
+    category: "Luxury",
   },
 
   // 🏡 PROPERTY
@@ -187,6 +201,7 @@ export const allLotteries: LotteryItem[] = [
     drawDate: "May 1",
     soldPercentage: 35,
     ticketsLeft: 650,
+    category: "Property",
   },
   {
     id: "w6",
@@ -199,6 +214,7 @@ export const allLotteries: LotteryItem[] = [
     drawDate: "May 10",
     soldPercentage: 25,
     ticketsLeft: 750,
+    category: "Property",
   },
 
   // ✈️ TRAVEL
@@ -213,6 +229,7 @@ export const allLotteries: LotteryItem[] = [
     drawDate: "April 22",
     soldPercentage: 68,
     ticketsLeft: 160,
+    category: "Travel",
   },
   {
     id: "w8",
@@ -225,6 +242,7 @@ export const allLotteries: LotteryItem[] = [
     drawDate: "April 28",
     soldPercentage: 50,
     ticketsLeft: 250,
+    category: "Travel",
   },
   {
     id: "w9",
@@ -237,6 +255,7 @@ export const allLotteries: LotteryItem[] = [
     drawDate: "May 5",
     soldPercentage: 62,
     ticketsLeft: 190,
+    category: "Travel",
   },
 
   // 🏍️ BIKES
@@ -251,6 +270,7 @@ export const allLotteries: LotteryItem[] = [
     drawDate: "April 16",
     soldPercentage: 75,
     ticketsLeft: 125,
+    category: "Car",
   },
   {
     id: "b2",
@@ -263,6 +283,7 @@ export const allLotteries: LotteryItem[] = [
     drawDate: "April 19",
     soldPercentage: 83,
     ticketsLeft: 85,
+    category: "Car",
   },
 
   // 💰 CASH
@@ -277,6 +298,7 @@ export const allLotteries: LotteryItem[] = [
     drawDate: "March 25",
     soldPercentage: 95,
     ticketsLeft: 25,
+    category: "Cash",
   },
   {
     id: "c2",
@@ -289,6 +311,7 @@ export const allLotteries: LotteryItem[] = [
     drawDate: "April 30",
     soldPercentage: 48,
     ticketsLeft: 520,
+    category: "Cash",
   },
   {
     id: "c3",
@@ -301,6 +324,7 @@ export const allLotteries: LotteryItem[] = [
     drawDate: "May 15",
     soldPercentage: 30,
     ticketsLeft: 700,
+    category: "Cash",
   },
 
   // 🎮 FUN / GADGETS
@@ -315,6 +339,7 @@ export const allLotteries: LotteryItem[] = [
     drawDate: "April 6",
     soldPercentage: 58,
     ticketsLeft: 210,
+    category: "Gadget",
   },
   {
     id: "g2",
@@ -327,6 +352,7 @@ export const allLotteries: LotteryItem[] = [
     drawDate: "April 9",
     soldPercentage: 44,
     ticketsLeft: 280,
+    category: "Gadget",
   },
   {
     id: "g3",
@@ -339,6 +365,7 @@ export const allLotteries: LotteryItem[] = [
     drawDate: "April 11",
     soldPercentage: 38,
     ticketsLeft: 310,
+    category: "Gadget",
   },
   {
     id: "g4",
@@ -351,6 +378,7 @@ export const allLotteries: LotteryItem[] = [
     drawDate: "April 13",
     soldPercentage: 66,
     ticketsLeft: 170,
+    category: "Gadget",
   },
   {
     id: "g5",
@@ -363,6 +391,7 @@ export const allLotteries: LotteryItem[] = [
     drawDate: "April 7",
     soldPercentage: 77,
     ticketsLeft: 115,
+    category: "Gadget",
   },
 ];
 
