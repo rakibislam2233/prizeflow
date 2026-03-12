@@ -1,4 +1,3 @@
-import React from "react";
 import type { LotteryItem } from "./LotteryCard";
 
 interface SidebarLotteryCardProps {
@@ -17,7 +16,7 @@ const SidebarLotteryCard = ({ item }: SidebarLotteryCardProps) => {
         <h3 className={`font-bold text-center text-sm ${item.titleColor || "text-gray-800"}`}>
           {item.title}
         </h3>
-        <div className="relative w-24 h-16 mt-2 flex-grow">
+        <div className="relative w-24 h-16 mt-2 grow">
           {/* Using a placeholder for dummy data */}
           <img
             src={item.imageUrl}
@@ -28,7 +27,7 @@ const SidebarLotteryCard = ({ item }: SidebarLotteryCardProps) => {
       </div>
 
       {/* Action Button */}
-      <button className="w-full py-2 bg-[#4CAF50] hover:bg-[#43A047] text-white text-xs font-semibold transition-colors">
+      <button className="w-full py-3 cursor-pointer bg-primary hover:bg-primary/90 text-white text-xs font-semibold transition-colors">
         Entry now ${item.ticketPrice}!
       </button>
     </div>

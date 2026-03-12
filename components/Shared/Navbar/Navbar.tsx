@@ -1,3 +1,4 @@
+import { UserRole } from "@/interface/user.interface";
 import { getMyProfile } from "@/services/user.service";
 import AuthButtons from "./AuthButtons";
 import Logo from "./Logo";
@@ -5,7 +6,6 @@ import MobileMenu from "./MobileMenu";
 import NavbarClientContainer from "./NavbarClientContainer";
 import NavLinks from "./NavLinks";
 import UserDropdown from "./UserDropdown";
-import { UserRole } from "@/interface/user.interface";
 
 const Navbar = async () => {
   const user = await getMyProfile();
@@ -18,7 +18,7 @@ const Navbar = async () => {
 
   return (
     <NavbarClientContainer>
-      <div className="container px-4 md:px-8 flex items-center justify-between py-4">
+      <div className="container mx-auto px-4 md:px-8 flex items-center justify-between py-4">
         <div className="flex items-center gap-12">
           {/* Logo */}
           <Logo />

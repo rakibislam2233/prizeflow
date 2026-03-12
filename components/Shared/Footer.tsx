@@ -1,14 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
-import Link from "next/link";
-import Image from "next/image";
 import logo from "@/public/asset/logo/logo.png";
+import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   return (
     <footer className="bg-[#202430] text-white pt-16 pb-8 ">
-      <div className="container px-5 md:px-16 mx-auto">
+      <div className="container mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
           {/* Logo & Info */}
           <div className="lg:col-span-4 flex flex-col items-start gap-6 pr-4">

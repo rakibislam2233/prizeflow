@@ -1,9 +1,8 @@
-import React from "react";
-import FilterBar from "@/components/Pages/Home/FilterBar";
-import FeaturedLottery from "@/components/Pages/Home/FeaturedLottery";
-import WinningBigLottery from "@/components/Pages/Home/WinningBigLottery";
 import DrawSoonSidebar from "@/components/Pages/Home/DrawSoonSidebar";
+import FeaturedLottery from "@/components/Pages/Home/FeaturedLottery";
+import FilterBar from "@/components/Pages/Home/FilterBar";
 import HeroSection from "@/components/Pages/Home/HeroSection";
+import WinningBigLottery from "@/components/Pages/Home/WinningBigLottery";
 
 export const metadata = {
   title: "PrizeFlow | Lottery & Giveaway",
@@ -14,19 +13,17 @@ const HomePage = () => {
   return (
     <div className="w-full min-h-screen">
       <HeroSection />
-      <div className="container py-8 px-4 md:px-8 lg:px-12 mx-auto flex flex-col lg:flex-row gap-8">
+      <FilterBar />
+      <div className="w-full container mx-auto px-4 sm:px-6 md:px-8 py-8 md:py-12 grid grid-cols-1 xl:grid-cols-4 gap-6 lg:gap-8">
         {/* Main Content */}
-        <div className="grow lg:w-3/4">
-          <FilterBar />
+        <div className="col-span-1 xl:col-span-3">
           <FeaturedLottery />
           <WinningBigLottery />
         </div>
 
         {/* Sidebar */}
-        <aside className="lg:w-1/4 shrink-0">
-          <div className="sticky top-8">
-            <DrawSoonSidebar />
-          </div>
+        <aside className="col-span-1 xl:col-span-1 mt-8 xl:mt-14">
+          <DrawSoonSidebar />
         </aside>
       </div>
     </div>

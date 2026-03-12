@@ -1,7 +1,5 @@
-import React from "react";
-import SidebarLotteryCard from "./SidebarLotteryCard";
 import type { LotteryItem } from "./LotteryCard";
-import Image from "next/image";
+import SidebarLotteryCard from "./SidebarLotteryCard";
 
 const dummySidebarItems: LotteryItem[] = [
   {
@@ -9,7 +7,8 @@ const dummySidebarItems: LotteryItem[] = [
     title: "Win a Brand Rolex",
     titleColor: "text-indigo-900",
     imageBg: "bg-blue-100/60",
-    imageUrl: "https://v.ftcdn.net/05/85/68/73/360_F_585687358_R94T2K9R9Q1k0r70Z0K7M2z2Y2l0u0m2.jpg",
+    imageUrl:
+      "https://v.ftcdn.net/05/85/68/73/360_F_585687358_R94T2K9R9Q1k0r70Z0K7M2z2Y2l0u0m2.jpg",
     ticketPrice: 5,
     drawDate: "March 20",
     soldPercentage: 0,
@@ -20,7 +19,8 @@ const dummySidebarItems: LotteryItem[] = [
     title: "Win a MacBook",
     titleColor: "text-indigo-900",
     imageBg: "bg-yellow-100/60",
-    imageUrl: "https://v.ftcdn.net/05/85/68/73/360_F_585687358_R94T2K9R9Q1k0r70Z0K7M2z2Y2l0u0m2.jpg", // Placeholder
+    imageUrl:
+      "https://v.ftcdn.net/05/85/68/73/360_F_585687358_R94T2K9R9Q1k0r70Z0K7M2z2Y2l0u0m2.jpg", // Placeholder
     ticketPrice: 5,
     drawDate: "March 20",
     soldPercentage: 0,
@@ -31,7 +31,8 @@ const dummySidebarItems: LotteryItem[] = [
     title: "Win a Brand Rolex",
     titleColor: "text-indigo-900",
     imageBg: "bg-blue-100/60",
-    imageUrl: "https://v.ftcdn.net/05/85/68/73/360_F_585687358_R94T2K9R9Q1k0r70Z0K7M2z2Y2l0u0m2.jpg", // Placeholder
+    imageUrl:
+      "https://v.ftcdn.net/05/85/68/73/360_F_585687358_R94T2K9R9Q1k0r70Z0K7M2z2Y2l0u0m2.jpg", // Placeholder
     ticketPrice: 5,
     drawDate: "March 20",
     soldPercentage: 0,
@@ -42,7 +43,8 @@ const dummySidebarItems: LotteryItem[] = [
     title: "Win brand new car",
     titleColor: "text-red-500",
     imageBg: "bg-emerald-100/50",
-    imageUrl: "https://v.ftcdn.net/05/85/68/73/360_F_585687358_R94T2K9R9Q1k0r70Z0K7M2z2Y2l0u0m2.jpg", // Placeholder
+    imageUrl:
+      "https://v.ftcdn.net/05/85/68/73/360_F_585687358_R94T2K9R9Q1k0r70Z0K7M2z2Y2l0u0m2.jpg", // Placeholder
     ticketPrice: 5,
     drawDate: "March 20",
     soldPercentage: 0,
@@ -52,19 +54,19 @@ const dummySidebarItems: LotteryItem[] = [
 
 const DrawSoonSidebar = () => {
   return (
-    <div className="w-full flex flex-col gap-4">
+    <div className="w-full flex flex-col gap-4 bg-white rounded-lg p-6">
       <div className="mb-2">
         <h2 className="text-sm font-medium text-gray-800 mb-2">Draw Soon</h2>
-        <div className="flex gap-2">
-          <div className="bg-green-300 w-12 h-12 flex flex-col items-center justify-center rounded-sm text-green-800">
+        <div className="w-full flex items-center justify-between gap-2">
+          <div className="w-full px-4 py-3 bg-[#B1D8B4]  flex flex-col items-center justify-center rounded-sm text-green-800">
             <span className="text-lg font-bold">05</span>
             <span className="text-[10px]">Hrs</span>
           </div>
-          <div className="bg-green-200 w-12 h-12 flex flex-col items-center justify-center rounded-sm text-green-800">
+          <div className="w-full px-4 py-3 bg-[#B1D8B4] flex flex-col items-center justify-center rounded-sm text-green-800">
             <span className="text-lg font-bold">10</span>
             <span className="text-[10px]">Min</span>
           </div>
-          <div className="bg-green-200 w-12 h-12 flex flex-col items-center justify-center rounded-sm text-green-800">
+          <div className="w-full px-4 py-3 bg-[#B1D8B4] flex flex-col items-center justify-center rounded-sm text-green-800">
             <span className="text-lg font-bold">35</span>
             <span className="text-[10px]">Sec</span>
           </div>
@@ -81,12 +83,18 @@ const DrawSoonSidebar = () => {
           <div className="relative w-full h-[140px]">
             {/* Banner Placeholder */}
             <div className="absolute inset-0 bg-gray-200 flex flex-col items-center justify-center p-3 text-center">
-              <span className="text-xl font-black text-orange-600 drop-shadow-md">WIN</span>
-              <span className="text-2xl font-black text-white drop-shadow-md">$10000</span>
-              <span className="text-xl font-black text-orange-600 drop-shadow-md">Cash</span>
+              <span className="text-xl font-black text-orange-600 drop-shadow-md">
+                WIN
+              </span>
+              <span className="text-2xl font-black text-white drop-shadow-md">
+                $10000
+              </span>
+              <span className="text-xl font-black text-orange-600 drop-shadow-md">
+                Cash
+              </span>
             </div>
           </div>
-          <button className="w-full py-2 bg-[#4CAF50] hover:bg-[#43A047] text-white text-xs font-semibold transition-colors">
+          <button className="w-full py-3 bg-primary cursor-pointer hover:bg-primary/90 text-white text-xs font-semibold transition-colors">
             Entry now $5!
           </button>
         </div>

@@ -1,6 +1,3 @@
-import React from "react";
-import Image from "next/image";
-
 export interface LotteryItem {
   id: string;
   title: string;
@@ -19,14 +16,16 @@ interface LotteryCardProps {
 
 const LotteryCard = ({ item }: LotteryCardProps) => {
   return (
-    <div className="bg-white rounded-lg p-3 shadow-sm flex flex-col gap-3">
+    <div className="bg-white rounded-[12px] p-3 flex flex-col gap-3">
       {/* Top Image Section */}
       <div
-        className={`relative w-full h-[160px] rounded-md flex flex-col items-center justify-between p-4 ${
+        className={`relative w-full h-[160px] rounded-[4px] flex flex-col items-center justify-between p-4 ${
           item.imageBg || "bg-gray-100"
         }`}
       >
-        <h3 className={`font-bold text-center ${item.titleColor || "text-gray-800"}`}>
+        <h3
+          className={`font-bold text-center ${item.titleColor || "text-gray-800"}`}
+        >
           {item.title}
         </h3>
         <div className="relative w-32 h-20 mt-2">
@@ -66,7 +65,7 @@ const LotteryCard = ({ item }: LotteryCardProps) => {
       </div>
 
       {/* Action Button */}
-      <button className="w-full py-2 bg-[#4CAF50] hover:bg-[#43A047] text-white text-sm font-medium rounded transition-colors mt-2">
+      <button className="w-full py-3 bg-primary text-white text-sm font-medium rounded-[8px] transition-colors mt-2 cursor-pointer">
         Entry now
       </button>
     </div>
