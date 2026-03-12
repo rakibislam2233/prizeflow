@@ -13,6 +13,7 @@ const dummySidebarItems: LotteryItem[] = [
     drawDate: "March 20",
     soldPercentage: 0,
     ticketsLeft: 0,
+    category: "luxury",
   },
   {
     id: "s2",
@@ -25,6 +26,7 @@ const dummySidebarItems: LotteryItem[] = [
     drawDate: "March 20",
     soldPercentage: 0,
     ticketsLeft: 0,
+    category: "electronics",
   },
   {
     id: "s3",
@@ -37,6 +39,7 @@ const dummySidebarItems: LotteryItem[] = [
     drawDate: "March 20",
     soldPercentage: 0,
     ticketsLeft: 0,
+    category: "luxury",
   },
   {
     id: "s4",
@@ -49,6 +52,7 @@ const dummySidebarItems: LotteryItem[] = [
     drawDate: "March 20",
     soldPercentage: 0,
     ticketsLeft: 0,
+    category: "automotive",
   },
 ];
 
