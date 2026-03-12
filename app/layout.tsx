@@ -1,3 +1,5 @@
+import Footer from "@/components/Shared/Footer";
+import Navbar from "@/components/Shared/Navbar/Navbar";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import { Toaster } from "sonner";
@@ -11,7 +13,8 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: "PrizeFlow | Lottery & Giveaway",
-  description: "Win big prizes including Cash, Tech, Cars, and Properties in fair and exciting lottery competitions.",
+  description:
+    "Win big prizes including Cash, Tech, Cars, and Properties in fair and exciting lottery competitions.",
 };
 
 export default function RootLayout({
@@ -21,8 +24,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${montserrat.className}`} suppressHydrationWarning={true}>
+      <body
+        className={`${montserrat.className}`}
+        suppressHydrationWarning={true}
+      >
+        <Navbar />
         {children}
+        <Footer />
         <Toaster position="top-center" richColors />
       </body>
     </html>

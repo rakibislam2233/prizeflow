@@ -1,9 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { BellRing, Trophy, Clock, CheckCircle, AlertCircle, Info, Gift, Star } from "lucide-react";
+import { AlertCircle, BellRing, CheckCircle, Clock, Gift, Info, Star, Trophy } from "lucide-react";
+import { useState } from "react";
 
 // Mock notification data
 const notifications = [
@@ -28,6 +28,72 @@ const notifications = [
     icon: Clock,
     color: "text-blue-600",
     bgColor: "bg-blue-50"
+  },
+  {
+    id: "3",
+    type: "entry_confirmed",
+    title: "Entry Confirmed",
+    message: "Your 5 tickets for 'Luxury Watch Collection' have been confirmed. Ticket numbers: #34567-#34571",
+    time: "1 day ago",
+    read: true,
+    icon: CheckCircle,
+    color: "text-green-600",
+    bgColor: "bg-green-50"
+  },
+  {
+    id: "4",
+    type: "new_competition",
+    title: "New Competition Alert",
+    message: "A new iPhone 15 Pro Max competition is now live! Early bird discount available for the first 100 entries.",
+    time: "2 days ago",
+    read: true,
+    icon: Gift,
+    color: "text-purple-600",
+    bgColor: "bg-purple-50"
+  },
+  {
+    id: "5",
+    type: "payment_success",
+    title: "Payment Successful",
+    message: "Your payment of $50 for competition entries has been processed successfully.",
+    time: "3 days ago",
+    read: true,
+    icon: CheckCircle,
+    color: "text-green-600",
+    bgColor: "bg-green-50"
+  },
+  {
+    id: "6",
+    type: "system_update",
+    title: "System Update",
+    message: "PrizeFlow will be undergoing maintenance on Sunday 2:00 AM - 4:00 AM EST. Services may be temporarily unavailable.",
+    time: "4 days ago",
+    read: true,
+    icon: Info,
+    color: "text-gray-600",
+    bgColor: "bg-gray-50"
+  },
+  {
+    id: "7",
+    type: "special_offer",
+    title: "Special Offer!",
+    message: "Get 20% bonus tickets on all competitions this weekend only. Use code: WEEKEND20",
+    time: "5 days ago",
+    read: true,
+    icon: Star,
+    color: "text-orange-600",
+    bgColor: "bg-orange-50"
+  },
+  {
+    id: "8",
+    type: "deadline_reminder",
+    title: "Entry Deadline",
+    message: "Only 24 hours left to enter the 'Dream Vacation Package' competition. Don't miss out!",
+    time: "1 week ago",
+    read: true,
+    icon: AlertCircle,
+    color: "text-red-600",
+    bgColor: "bg-red-50"
   }
 ];
 
@@ -51,9 +117,14 @@ export default function NotificationsPage() {
     );
   };
 
+  const deleteNotification = (id: string) => {
+    setNotificationsList(prev => prev.filter(n => n.id !== id));
+  };
+
   const filteredNotifications = notificationsList.filter(notification => {
     if (filter === "all") return true;
     if (filter === "unread") return !notification.read;
+    if (filter === "read") return notification.read;
     return notification.type === filter;
   });
 
@@ -138,6 +209,27 @@ export default function NotificationsPage() {
           >
             Unread ({unreadCount})
           </Button>
+          <Button
+            variant={filter === "winner" ? "default" : "outline"}
+            onClick={() => setFilter("winner")}
+            size="sm"
+          >
+            Wins
+          </Button>
+          <Button
+            variant={filter === "draw_reminder" ? "default" : "outline"}
+            onClick={() => setFilter("draw_reminder")}
+            size="sm"
+          >
+            Draw Reminders
+          </Button>
+          <Button
+            variant={filter === "special_offer" ? "default" : "outline"}
+            onClick={() => setFilter("special_offer")}
+            size="sm"
+          >
+            Special Offers
+          </Button>
         </div>
 
         {/* Notifications List */}
@@ -188,6 +280,24 @@ export default function NotificationsPage() {
                           Claim Prize
                         </Button>
                       )}
+                      {notification.type === 'new_competition' && (
+                        <Button size="sm" variant="outline">
+                          View Competition
+                        </Button>
+                      )}
+                      {notification.type === 'special_offer' && (
+                        <Button size="sm" variant="outline">
+                          Use Code
+                        </Button>
+                      )}
+                      <Button 
+                        size="sm" 
+                        variant="ghost"
+                        onClick={() => deleteNotification(notification.id)}
+                        className="text-gray-400 hover:text-red-500"
+                      >
+                        Delete
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -195,6 +305,31 @@ export default function NotificationsPage() {
             </Card>
           ))}
         </div>
+
+        {/* Empty State */}
+        {filteredNotifications.length === 0 && (
+          <Card className="text-center py-12">
+            <CardContent>
+              <BellRing className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold mb-2">No notifications</h3>
+              <p className="text-gray-600">
+                {filter === "all" 
+                  ? "You're all caught up! No new notifications."
+                  : `No ${filter} notifications found.`
+                }
+              </p>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Load More */}
+        {filteredNotifications.length > 0 && (
+          <div className="text-center mt-8">
+            <Button variant="outline" size="lg">
+              Load Older Notifications
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );

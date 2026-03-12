@@ -2,8 +2,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { FormInput } from "@/components/ui/form-input";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { IUser } from "@/interface/user.interface";
 import { getMyProfile, updateMyProfile } from "@/services/user.service";
 import { Camera, Phone, User } from "lucide-react";
@@ -22,7 +20,6 @@ const UserProfileContent = ({
   const [formData, setFormData] = useState({
     fullName: initialProfile?.fullName || "",
     phone: initialProfile?.phoneNumber || "",
-    bio: initialProfile?.bio || "",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {

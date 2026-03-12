@@ -1,4 +1,5 @@
 import CompetitionPage from "@/components/Pages/Competition/CompetitionPage";
+import { Suspense } from "react";
 
 export async function generateMetadata() {
   return {
@@ -8,7 +9,11 @@ export async function generateMetadata() {
 }
 
 const CompetitionPageWrapper = () => {
-  return <CompetitionPage />;
+  return (
+    <Suspense fallback={<div>Loading competitions...</div>}>
+      <CompetitionPage />
+    </Suspense>
+  );
 };
 
 export default CompetitionPageWrapper;

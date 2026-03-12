@@ -1,11 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { FormInput } from "@/components/ui/form-input";
 import { FormTextarea } from "@/components/ui/form-textarea";
-import { User, Mail, Phone, MapPin, Calendar, Shield, Camera, Edit3, Save, X } from "lucide-react";
+import { Calendar, Camera, Edit3, Mail, MapPin, Phone, Save, Shield, User, X } from "lucide-react";
+import { useState } from "react";
 
 export default function ProfilePage() {
   const [isEditing, setIsEditing] = useState(false);
@@ -16,21 +16,39 @@ export default function ProfilePage() {
     phone: "+1 234 567 8900",
     dateOfBirth: "1990-01-15",
     address: "123 Competition Street, Prize City, PC 12345",
-    bio: "Passionate about prize competitions and always looking for the next big win!"
+    bio: "Passionate about prize competitions and always looking for the next big win!",
+    notifications: {
+      email: true,
+      sms: true,
+      push: false,
+      marketing: true
+    }
   });
 
-  const handleInputChange = (field: string, value: string) => {
+  const handleInputChange = (field: string, value: string | boolean) => {
     setFormData(prev => ({
       ...prev,
       [field]: value
     }));
   };
 
+  const handleNotificationChange = (field: string, value: boolean) => {
+    setFormData(prev => ({
+      ...prev,
+      notifications: {
+        ...prev.notifications,
+        [field]: value
+      }
+    }));
+  };
+
   const handleSave = () => {
+    // Save logic here
     setIsEditing(false);
   };
 
   const handleCancel = () => {
+    // Reset form data
     setIsEditing(false);
   };
 
@@ -202,10 +220,118 @@ export default function ProfilePage() {
                 </div>
               </CardContent>
             </Card>
+
+            {/* Account Settings */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Shield className="w-5 h-5" />
+                  Account Settings
+                </CardTitle>
+                <CardDescription>
+                  Manage your password and security settings
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <label className="text-sm font-medium mb-2 block">Current Password</label>
+                  <FormInput
+                    type="password"
+                    placeholder="Enter current password"
+                    disabled={!isEditing}
+                  />
+                </div>
+                <div>
+                  <label className="text-sm font-medium mb-2 block">New Password</label>
+                  <FormInput
+                    type="password"
+                    placeholder="Enter new password"
+                    disabled={!isEditing}
+                  />
+                </div>
+                <div>
+                  <label className="text-sm font-medium mb-2 block">Confirm New Password</label>
+                  <FormInput
+                    type="password"
+                    placeholder="Confirm new password"
+                    disabled={!isEditing}
+                  />
+                </div>
+                {isEditing && (
+                  <Button variant="outline" className="w-full">
+                    Update Password
+                  </Button>
+                )}
+              </CardContent>
+            </Card>
           </div>
 
           {/* Sidebar */}
           <div className="space-y-6">
+            {/* Notification Preferences */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Notification Preferences</CardTitle>
+                <CardDescription>
+                  Choose how you want to receive updates
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-medium">Email Notifications</p>
+                    <p className="text-sm text-gray-600">Receive updates via email</p>
+                  </div>
+                  <input
+                    type="checkbox"
+                    checked={formData.notifications.email}
+                    onChange={(e) => handleNotificationChange("email", e.target.checked)}
+                    disabled={!isEditing}
+                    className="w-4 h-4 text-primary rounded"
+                  />
+                </div>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-medium">SMS Notifications</p>
+                    <p className="text-sm text-gray-600">Receive text messages</p>
+                  </div>
+                  <input
+                    type="checkbox"
+                    checked={formData.notifications.sms}
+                    onChange={(e) => handleNotificationChange("sms", e.target.checked)}
+                    disabled={!isEditing}
+                    className="w-4 h-4 text-primary rounded"
+                  />
+                </div>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-medium">Push Notifications</p>
+                    <p className="text-sm text-gray-600">Browser notifications</p>
+                  </div>
+                  <input
+                    type="checkbox"
+                    checked={formData.notifications.push}
+                    onChange={(e) => handleNotificationChange("push", e.target.checked)}
+                    disabled={!isEditing}
+                    className="w-4 h-4 text-primary rounded"
+                  />
+                </div>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-medium">Marketing Emails</p>
+                    <p className="text-sm text-gray-600">Promotional content</p>
+                  </div>
+                  <input
+                    type="checkbox"
+                    checked={formData.notifications.marketing}
+                    onChange={(e) => handleNotificationChange("marketing", e.target.checked)}
+                    disabled={!isEditing}
+                    className="w-4 h-4 text-primary rounded"
+                  />
+                </div>
+              </CardContent>
+            </Card>
+
             {/* Quick Actions */}
             <Card>
               <CardHeader>
@@ -223,6 +349,10 @@ export default function ProfilePage() {
                 <Button variant="outline" className="w-full justify-start">
                   <Calendar className="w-4 h-4 mr-2" />
                   Competition History
+                </Button>
+                <Button variant="outline" className="w-full justify-start text-red-600 hover:text-red-700">
+                  <X className="w-4 h-4 mr-2" />
+                  Delete Account
                 </Button>
               </CardContent>
             </Card>

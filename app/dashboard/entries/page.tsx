@@ -32,18 +32,45 @@ const userEntries = [
     drawDate: "2024-03-24",
     status: "active",
     prize: "MacBook Pro 16-inch"
+  },
+  {
+    id: "3",
+    competitionName: "Luxury Watch Collection",
+    competitionImage: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&h=200&fit=crop",
+    ticketsPurchased: 2,
+    totalTickets: 200,
+    ticketNumbers: ["#34567", "#34568"],
+    entryDate: "2024-03-18",
+    drawDate: "2024-03-22",
+    status: "ended",
+    prize: "Rolex Submariner"
+  },
+  {
+    id: "4",
+    competitionName: "Dream Vacation Package",
+    competitionImage: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=300&h=200&fit=crop",
+    ticketsPurchased: 10,
+    totalTickets: 1500,
+    ticketNumbers: ["#45678", "#45679", "#45680", "#45681", "#45682", "#45683", "#45684", "#45685", "#45686", "#45687"],
+    entryDate: "2024-03-17",
+    drawDate: "2024-03-30",
+    status: "active",
+    prize: "Maldives Resort Package"
   }
 ];
 
 const sortOptions = [
   { value: "newest", label: "Newest First" },
-  { value: "oldest", label: "Oldest First" }
+  { value: "oldest", label: "Oldest First" },
+  { value: "draw-date", label: "Draw Date" },
+  { value: "most-tickets", label: "Most Tickets" }
 ];
 
 const filterOptions = [
   { value: "all", label: "All Status" },
   { value: "active", label: "Active" },
-  { value: "ended", label: "Ended" }
+  { value: "ended", label: "Ended" },
+  { value: "won", label: "Won" }
 ];
 
 export default function EntriesPage() {
@@ -64,6 +91,8 @@ export default function EntriesPage() {
         return <Badge className="bg-green-100 text-green-800">Active</Badge>;
       case "ended":
         return <Badge className="bg-gray-100 text-gray-800">Ended</Badge>;
+      case "won":
+        return <Badge className="bg-yellow-100 text-yellow-800">Won!</Badge>;
       default:
         return <Badge variant="secondary">{status}</Badge>;
     }
@@ -200,6 +229,31 @@ export default function EntriesPage() {
             </Card>
           ))}
         </div>
+
+        {/* Empty State */}
+        {filteredEntries.length === 0 && (
+          <Card className="text-center py-12">
+            <CardContent>
+              <Trophy className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold mb-2">No entries found</h3>
+              <p className="text-gray-600 mb-4">
+                {searchTerm ? "Try adjusting your search terms" : "Start entering competitions to see your entries here"}
+              </p>
+              <Button>
+                Browse Competitions
+              </Button>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Load More */}
+        {filteredEntries.length > 0 && (
+          <div className="text-center mt-8">
+            <Button variant="outline" size="lg">
+              Load More Entries
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );

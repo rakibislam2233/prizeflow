@@ -2,9 +2,8 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { FormInput } from "@/components/ui/form-input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Award, BellRing, Crown, DollarSign, Filter, LayoutGrid, Search, User } from "lucide-react";
+import { Award, BellRing, Crown, DollarSign, LayoutGrid, User } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -13,8 +12,6 @@ const transactions = [
   { id: "TXN001", competition: "Win brand new car", amount: "$50", status: "Confirmed", date: "2024-03-20" },
   { id: "TXN002", competition: "Win a MacBook", amount: "$25", status: "Pending", date: "2024-03-19" },
   { id: "TXN003", competition: "Win a Brand Rolex", amount: "$30", status: "Confirmed", date: "2024-03-18" },
-  { id: "TXN004", competition: "Win brand new car", amount: "$50", status: "Confirmed", date: "2024-03-17" },
-  { id: "TXN005", competition: "Win a MacBook", amount: "$25", status: "Confirmed", date: "2024-03-16" },
 ];
 
 // Recent competitions
@@ -25,7 +22,7 @@ const recentCompetitions = [
 ];
 
 export default function UserDashboardPage() {
-  const [activeTab, setActiveTab] = useState("transaction");
+  const [searchTerm, setSearchTerm] = useState("");
 
   return (
     <div className="flex min-h-screen bg-gray-50">
@@ -114,7 +111,7 @@ export default function UserDashboardPage() {
               <DollarSign className="h-6 w-6 text-green-600" />
             </div>
             <div>
-              <CardTitle className="text-2xl font-bold">£125,450</CardTitle>
+              <CardTitle className="text-2xl font-bold">$125,450</CardTitle>
               <CardDescription>Total Spent</CardDescription>
               <p className="text-sm text-gray-500">All time</p>
             </div>
@@ -134,22 +131,25 @@ export default function UserDashboardPage() {
           </CardContent>
         </Card>
 
-        {/* Content based on active tab */}
-        {activeTab === "transaction" && (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Recent Transactions */}
           <Card>
             <CardHeader>
-              <CardTitle>Transaction History</CardTitle>
-              <CardDescription>Your recent competition entries and payments</CardDescription>
+              <CardTitle className="flex items-center justify-between">
+                Recent Transactions
+                <Button variant="outline" size="sm">
+                  View All
+                </Button>
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Transaction ID</TableHead>
+                    <TableHead>ID</TableHead>
                     <TableHead>Competition</TableHead>
                     <TableHead>Amount</TableHead>
                     <TableHead>Status</TableHead>
-                    <TableHead>Date</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -159,130 +159,50 @@ export default function UserDashboardPage() {
                       <TableCell>{transaction.competition}</TableCell>
                       <TableCell>{transaction.amount}</TableCell>
                       <TableCell>
-                        <Badge variant={transaction.status === "Confirmed" ? "default" : "secondary"}>
+                        <Badge 
+                          variant={transaction.status === "Confirmed" ? "default" : "secondary"}
+                          className={transaction.status === "Confirmed" ? "bg-green-100 text-green-800" : ""}
+                        >
                           {transaction.status}
                         </Badge>
                       </TableCell>
-                      <TableCell>{transaction.date}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
               </Table>
             </CardContent>
           </Card>
-        )}
 
-        {activeTab === "entries" && (
+          {/* Recent Competitions */}
           <Card>
             <CardHeader>
-              <CardTitle>My Entries</CardTitle>
-              <CardDescription>Competitions you've entered</CardDescription>
+              <CardTitle className="flex items-center justify-between">
+                Recent Competitions
+                <Button variant="outline" size="sm">
+                  View All
+                </Button>
+              </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="flex gap-4 mb-6">
-                <FormInput placeholder="Search competitions..." icon={Search} className="flex-1" />
-                <Button variant="outline" className="flex items-center gap-2">
-                  <Filter className="w-4 h-4" />
-                  Filter
-                </Button>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="space-y-4">
                 {recentCompetitions.map((competition) => (
-                  <Card key={competition.id}>
-                    <CardContent className="p-6">
-                      <div className="flex justify-between items-start mb-4">
-                        <h3 className="font-semibold text-lg">{competition.name}</h3>
-                        <Badge variant={competition.status === "Active" ? "default" : "secondary"}>
-                          {competition.status}
-                        </Badge>
-                      </div>
-                      <div className="space-y-2 text-sm text-gray-600">
-                        <p>Tickets: {competition.tickets}</p>
-                        <p>Date: {competition.date}</p>
-                      </div>
-                    </CardContent>
-                  </Card>
+                  <div key={competition.id} className="flex items-center justify-between p-4 border rounded-lg">
+                    <div>
+                      <h4 className="font-semibold">{competition.name}</h4>
+                      <p className="text-sm text-gray-600">{competition.tickets} tickets • {competition.date}</p>
+                    </div>
+                    <Badge 
+                      variant={competition.status === "Active" ? "default" : "secondary"}
+                      className={competition.status === "Active" ? "bg-green-100 text-green-800" : ""}
+                    >
+                      {competition.status}
+                    </Badge>
+                  </div>
                 ))}
               </div>
             </CardContent>
           </Card>
-        )}
-
-        {activeTab === "notification" && (
-          <Card>
-            <CardHeader>
-              <CardTitle>Notifications</CardTitle>
-              <CardDescription>Stay updated with your competition activities</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3 p-4 border rounded-lg">
-                  <BellRing className="w-5 h-5 text-yellow-500 mt-1" />
-                  <div>
-                    <h4 className="font-semibold">Draw reminder</h4>
-                    <p className="text-sm text-gray-600">The draw for "Win brand new car" is tomorrow at 8:00 PM</p>
-                    <p className="text-xs text-gray-400 mt-1">2 hours ago</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3 p-4 border rounded-lg">
-                  <Award className="w-5 h-5 text-green-500 mt-1" />
-                  <div>
-                    <h4 className="font-semibold">Entry confirmed</h4>
-                    <p className="text-sm text-gray-600">Your entry for "Win a MacBook" has been confirmed</p>
-                    <p className="text-xs text-gray-400 mt-1">1 day ago</p>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        )}
-
-        {activeTab === "profile" && (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <Card className="lg:col-span-2">
-              <CardHeader>
-                <CardTitle>Profile Information</CardTitle>
-                <CardDescription>Update your personal details</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-sm font-medium">First Name</label>
-                    <FormInput placeholder="John" />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium">Last Name</label>
-                    <FormInput placeholder="Doe" />
-                  </div>
-                </div>
-                <div>
-                  <label className="text-sm font-medium">Email</label>
-                  <FormInput placeholder="john.doe@example.com" />
-                </div>
-                <div>
-                  <label className="text-sm font-medium">Phone</label>
-                  <FormInput placeholder="+1 234 567 8900" />
-                </div>
-                <Button className="w-full">Save Changes</Button>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Account Settings</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <label className="text-sm font-medium">Change Password</label>
-                  <FormInput type="password" placeholder="Current password" className="mb-2" />
-                  <FormInput type="password" placeholder="New password" className="mb-2" />
-                  <FormInput type="password" placeholder="Confirm new password" />
-                </div>
-                <Button variant="outline" className="w-full">Update Password</Button>
-              </CardContent>
-            </Card>
-          </div>
-        )}
+        </div>
       </main>
     </div>
   );

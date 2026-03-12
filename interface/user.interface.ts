@@ -12,16 +12,14 @@ export enum UserStatus {
 }
 
 export interface IUser {
-  id: string;
+  id?: string;
   fullName: string;
   email: string;
-  phoneNumber: string | null;
-  profileImage: string | null;
-  bio: string | null;
+  phoneNumber?: string | null;
+  profileImage?: string | null;
   isEmailVerified: true;
   status: UserStatus;
   role: UserRole;
-  companyId: string | null;
   isDeleted: false;
   createdAt: string;
 }
