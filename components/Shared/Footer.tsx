@@ -192,16 +192,16 @@ const Footer = () => {
             <span className="text-xs">Payment methods:</span>
             <div className="flex gap-3">
               <div className="w-12 h-8 bg-white rounded flex items-center justify-center p-1">
-                <img src="/asset/payment/stripe.png" alt="Stripe" className="w-full h-full object-contain" />
+                <img src="/asset/payment/stripe.svg" alt="Stripe" className="w-full h-full object-contain" />
               </div>
               <div className="w-12 h-8 bg-white rounded flex items-center justify-center p-1">
-                <img src="/asset/payment/paypal.png" alt="PayPal" className="w-full h-full object-contain" />
+                <img src="/asset/payment/paypal.svg" alt="PayPal" className="w-full h-full object-contain" />
               </div>
               <div className="w-12 h-8 bg-white rounded flex items-center justify-center p-1">
-                <img src="/asset/payment/visa.png" alt="Visa" className="w-full h-full object-contain" />
+                <img src="/asset/payment/visa.svg" alt="Visa" className="w-full h-full object-contain" />
               </div>
               <div className="w-12 h-8 bg-white rounded flex items-center justify-center p-1">
-                <img src="/asset/payment/mastercard.png" alt="Mastercard" className="w-full h-full object-contain" />
+                <img src="/asset/payment/mastercard.svg" alt="Mastercard" className="w-full h-full object-contain" />
               </div>
             </div>
           </div>

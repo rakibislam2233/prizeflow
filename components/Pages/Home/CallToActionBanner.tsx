@@ -4,7 +4,7 @@ import React from "react";
 
 const CallToActionBanner: React.FC = () => {
   return (
-    <div className="bg-linear-to-r from-green-500 to-green-600  p-8 sm:p-12 md:p-16 text-center">
+    <div className="bg-linear-to-r from-green-500 to-green-600  p-8 sm:p-12 md:p-20 text-center">
       {/* Content */}
       <div className="max-w-3xl mx-auto">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
