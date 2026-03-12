@@ -29,7 +29,9 @@ export default function RootLayout({
         suppressHydrationWarning={true}
       >
         <Navbar />
-        {children}
+        <main className="pt-16 lg:pt-20">
+          {children}
+        </main>
         <Footer />
         <Toaster position="top-center" richColors />
       </body>

@@ -105,47 +105,47 @@ const UserDropdown: React.FC<UserDropdownProps> = ({
           {/* Menu Items */}
           <DropdownMenuItem
             onClick={() => router.push(dashboardHref)}
-            className="px-3 py-2.5 text-sm  text-gray-700 rounded-md cursor-pointer flex items-center gap-3 transition-colors focus:text-white hover:bg-gray-50 focus:bg-primary"
+            className="px-3 py-2.5 text-sm text-gray-700 rounded-md cursor-pointer flex items-center gap-3 transition-colors focus:text-white hover:bg-gray-50 focus:bg-primary"
           >
             <LayoutDashboard className="w-4 h-4 text-primary" />
             <span className="font-medium">Dashboard</span>
           </DropdownMenuItem>
 
           <DropdownMenuItem
-            onClick={() => router.push(`${dashboardHref}/files`)}
-            className="px-3 py-2.5 text-sm  text-gray-700 rounded-md cursor-pointer flex items-center gap-3 transition-colors focus:text-white hover:bg-gray-50 focus:bg-primary"
-          >
-            <Cloud className="w-4 h-4 text-primary" />
-            <span className="font-medium">My Files</span>
-          </DropdownMenuItem>
-
-          <DropdownMenuItem
-            onClick={() => router.push(`${dashboardHref}/storage`)}
-            className="px-3 py-2.5 text-sm  text-gray-700 rounded-md cursor-pointer flex items-center gap-3 transition-colors focus:text-white hover:bg-gray-50 focus:bg-primary"
-          >
-            <HardDrive className="w-4 h-4 text-primary" />
-            <span className="font-medium">Storage</span>
-          </DropdownMenuItem>
-
-          <DropdownMenuItem
-            onClick={() => router.push(`${dashboardHref}/subscription`)}
-            className="px-3 py-2.5 text-sm  text-gray-700 rounded-md cursor-pointer flex items-center gap-3 transition-colors focus:text-white hover:bg-gray-50 focus:bg-primary"
-          >
-            <CreditCard className="w-4 h-4 text-primary" />
-            <span className="font-medium">Subscription</span>
-          </DropdownMenuItem>
-
-          <DropdownMenuItem
             onClick={() => router.push(`${dashboardHref}/profile`)}
-            className="px-3 py-2.5 text-sm  text-gray-700 rounded-md cursor-pointer flex items-center gap-3 transition-colors focus:text-white hover:bg-gray-50 focus:bg-primary"
+            className="px-3 py-2.5 text-sm text-gray-700 rounded-md cursor-pointer flex items-center gap-3 transition-colors focus:text-white hover:bg-gray-50 focus:bg-primary"
           >
             <UserIcon className="w-4 h-4 text-primary" />
             <span className="font-medium">My Profile</span>
           </DropdownMenuItem>
 
           <DropdownMenuItem
+            onClick={() => router.push(`${dashboardHref}/entries`)}
+            className="px-3 py-2.5 text-sm text-gray-700 rounded-md cursor-pointer flex items-center gap-3 transition-colors focus:text-white hover:bg-gray-50 focus:bg-primary"
+          >
+            <Cloud className="w-4 h-4 text-primary" />
+            <span className="font-medium">My Entries</span>
+          </DropdownMenuItem>
+
+          <DropdownMenuItem
+            onClick={() => router.push(`${dashboardHref}/transactions`)}
+            className="px-3 py-2.5 text-sm text-gray-700 rounded-md cursor-pointer flex items-center gap-3 transition-colors focus:text-white hover:bg-gray-50 focus:bg-primary"
+          >
+            <HardDrive className="w-4 h-4 text-primary" />
+            <span className="font-medium">Transactions</span>
+          </DropdownMenuItem>
+
+          <DropdownMenuItem
+            onClick={() => router.push(`${dashboardHref}/notifications`)}
+            className="px-3 py-2.5 text-sm text-gray-700 rounded-md cursor-pointer flex items-center gap-3 transition-colors focus:text-white hover:bg-gray-50 focus:bg-primary"
+          >
+            <CreditCard className="w-4 h-4 text-primary" />
+            <span className="font-medium">Notifications</span>
+          </DropdownMenuItem>
+
+          <DropdownMenuItem
             onClick={() => router.push(`${dashboardHref}/settings`)}
-            className="px-3 py-2.5 text-sm  text-gray-700 rounded-md cursor-pointer flex items-center gap-3 transition-colors focus:text-white hover:bg-gray-50 focus:bg-primary"
+            className="px-3 py-2.5 text-sm text-gray-700 rounded-md cursor-pointer flex items-center gap-3 transition-colors focus:text-white hover:bg-gray-50 focus:bg-primary"
           >
             <Settings className="w-4 h-4 text-primary" />
             <span className="font-medium">Settings</span>

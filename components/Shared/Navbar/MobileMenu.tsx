@@ -19,6 +19,12 @@ const MobileMenu = ({ user, dashboardHref }: MobileMenuProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const pathname = usePathname();
   const isHomePage = pathname === "/";
+  const isDashboardPage = pathname?.startsWith("/dashboard");
+
+  // Don't show mobile menu toggle on dashboard pages
+  if (isDashboardPage) {
+    return null;
+  }
 
   return (
     <div className="md:hidden flex items-center">
@@ -78,6 +84,47 @@ const MobileMenu = ({ user, dashboardHref }: MobileMenuProps) => {
             className="flex items-center gap-3 px-4 py-4 text-base font-bold text-gray-600 hover:text-primary hover:bg-white transition-all rounded-lg"
           >
             Dashboard
+          </Link>
+          <Link
+            href="/dashboard/profile"
+            onClick={() => setIsOpen(false)}
+            className="flex items-center gap-3 px-4 py-4 text-base font-bold text-gray-600 hover:text-primary hover:bg-white transition-all rounded-lg"
+          >
+            My Profile
+          </Link>
+          <Link
+            href="/dashboard/entries"
+            onClick={() => setIsOpen(false)}
+            className="flex items-center gap-3 px-4 py-4 text-base font-bold text-gray-600 hover:text-primary hover:bg-white transition-all rounded-lg"
+          >
+            My Entries
+          </Link>
+          <Link
+            href="/dashboard/transactions"
+            onClick={() => setIsOpen(false)}
+            className="flex items-center gap-3 px-4 py-4 text-base font-bold text-gray-600 hover:text-primary hover:bg-white transition-all rounded-lg"
+          >
+            Transactions
+          </Link>
+          <Link
+            href="/dashboard/notifications"
+            onClick={() => setIsOpen(false)}
+            className="flex items-center gap-3 px-4 py-4 text-base font-bold text-gray-600 hover:text-primary hover:bg-white transition-all rounded-lg"
+          >
+            Notifications
+          </Link>
+          
+          <div className="px-4 mb-4 mt-6">
+            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+              General
+            </span>
+          </div>
+          <Link
+            href="/competition"
+            onClick={() => setIsOpen(false)}
+            className="flex items-center gap-3 px-4 py-4 text-base font-bold text-gray-600 hover:text-primary hover:bg-white transition-all rounded-lg"
+          >
+            Competitions
           </Link>
           <Link
             href="/pricing"

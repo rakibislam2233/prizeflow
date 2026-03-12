@@ -27,12 +27,14 @@ const Navbar = async () => {
         </div>
         {/* Desktop Links */}
         <NavLinks />
-        {/* Conditional: Show AuthButtons if no user, UserDropdown if user exists */}
-        {user ? (
-          <UserDropdown user={user} dashboardHref={dashboardHref} />
-        ) : (
-          <AuthButtons />
-        )}
+        {/* Conditional: Show AuthButtons if no user, UserDropdown if user exists (Desktop only) */}
+        <div className="hidden md:block">
+          {user ? (
+            <UserDropdown user={user} dashboardHref={dashboardHref} />
+          ) : (
+            <AuthButtons />
+          )}
+        </div>
         <MobileMenu user={user} dashboardHref={dashboardHref} />
       </div>
     </NavbarClientContainer>
