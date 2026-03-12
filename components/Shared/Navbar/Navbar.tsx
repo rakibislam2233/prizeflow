@@ -16,7 +16,7 @@ const Navbar = async () => {
     isDeleted: false,
     createdAt: new Date().toISOString(),
   };
-  const dashboardHref = "/dasbhaord";
+  const dashboardHref = "/dashboard";
 
   return (
     <NavbarClientContainer>
@@ -29,7 +29,7 @@ const Navbar = async () => {
         <NavLinks />
         {/* Conditional: Show AuthButtons if no user, UserDropdown if user exists */}
         {user ? (
-          <UserDropdown user={user} dashboardHref={dashboardHref} />  
+          <UserDropdown user={user} dashboardHref={dashboardHref} />
         ) : (
           <AuthButtons />
         )}

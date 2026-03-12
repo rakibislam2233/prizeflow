@@ -1,26 +1,18 @@
-"use client";
-import UserHeader from "@/components/Pages/Dashboard/User/UserHeader";
-import UserSidebar from "@/components/Pages/Dashboard/User/UserSidebar";
-import Footer from "@/components/Shared/Footer";
-import Navbar from "@/components/Shared/Navbar/Navbar";
-import { useState } from "react";
+import DashboardHome from "@/components/Pages/Dashboard/DashboardHome";
 
 export default function UserDashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   return (
-    <div className="flex min-h-screen bg-white">
-      <UserSidebar
-        isOpen={isMobileMenuOpen}
-        onClose={() => setIsMobileMenuOpen(false)}
-      />
-      <div className="flex-1 flex flex-col min-w-0">
-        <main className="flex-1 p-4 md:p-8 overflow-y-auto">{children}</main>
-      </div>
+    <div className="w-full container mx-auto pt-32 px-4 md:px-8">
+      <h1 className="text-3xl font-bold text-gray-900 mb-2">My Dashboard</h1>
+      <p className="text-gray-600 mb-8">
+        Track your entries, wins, and account activity
+      </p>
+      <DashboardHome />
+      <main className="w-full pb-10">{children}</main>
     </div>
   );
 }
