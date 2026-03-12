@@ -54,21 +54,21 @@ const dummySidebarItems: LotteryItem[] = [
 
 const DrawSoonSidebar = () => {
   return (
-    <div className="w-full flex flex-col gap-4 bg-white rounded-lg p-6">
+    <div className="w-full flex flex-col gap-4 bg-white rounded-lg p-4 sm:p-6">
       <div className="mb-2">
         <h2 className="text-sm font-medium text-gray-800 mb-2">Draw Soon</h2>
-        <div className="w-full flex items-center justify-between gap-2">
-          <div className="w-full px-4 py-3 bg-[#B1D8B4]  flex flex-col items-center justify-center rounded-sm text-green-800">
-            <span className="text-lg font-bold">05</span>
-            <span className="text-[10px]">Hrs</span>
+        <div className="w-full flex items-center justify-between gap-1 sm:gap-2">
+          <div className="w-full px-2 sm:px-3 lg:px-4 py-2 sm:py-3 bg-[#B1D8B4] flex flex-col items-center justify-center rounded-sm text-green-800">
+            <span className="text-sm sm:text-base lg:text-lg font-bold">05</span>
+            <span className="text-[8px] sm:text-[9px] lg:text-[10px]">Hrs</span>
           </div>
           <div className="w-full px-4 py-3 bg-[#B1D8B4] flex flex-col items-center justify-center rounded-sm text-green-800">
-            <span className="text-lg font-bold">10</span>
-            <span className="text-[10px]">Min</span>
+            <span className="text-sm sm:text-base lg:text-lg font-bold">10</span>
+            <span className="text-[8px] sm:text-[9px] lg:text-[10px]">Min</span>
           </div>
           <div className="w-full px-4 py-3 bg-[#B1D8B4] flex flex-col items-center justify-center rounded-sm text-green-800">
-            <span className="text-lg font-bold">35</span>
-            <span className="text-[10px]">Sec</span>
+            <span className="text-sm sm:text-base lg:text-lg font-bold">35</span>
+            <span className="text-[8px] sm:text-[9px] lg:text-[10px]">Sec</span>
           </div>
         </div>
       </div>
@@ -80,21 +80,21 @@ const DrawSoonSidebar = () => {
 
         {/* Banner Card */}
         <div className="bg-white rounded-md overflow-hidden shadow-sm flex flex-col">
-          <div className="relative w-full h-[140px]">
+          <div className="relative w-full h-[120px] sm:h-[140px]">
             {/* Banner Placeholder */}
             <div className="absolute inset-0 bg-gray-200 flex flex-col items-center justify-center p-3 text-center">
-              <span className="text-xl font-black text-orange-600 drop-shadow-md">
+              <span className="text-lg sm:text-xl font-black text-orange-600 drop-shadow-md">
                 WIN
               </span>
-              <span className="text-2xl font-black text-white drop-shadow-md">
+              <span className="text-xl sm:text-2xl font-black text-white drop-shadow-md">
                 $10000
               </span>
-              <span className="text-xl font-black text-orange-600 drop-shadow-md">
+              <span className="text-lg sm:text-xl font-black text-orange-600 drop-shadow-md">
                 Cash
               </span>
             </div>
           </div>
-          <button className="w-full py-3 bg-primary cursor-pointer hover:bg-primary/90 text-white text-xs font-semibold transition-colors">
+          <button className="w-full py-2 sm:py-3 bg-primary cursor-pointer hover:bg-primary/90 text-white text-xs font-semibold transition-colors">
             Entry now $5!
           </button>
         </div>
