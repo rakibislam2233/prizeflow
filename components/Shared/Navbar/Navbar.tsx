@@ -18,7 +18,7 @@ const Navbar = async () => {
 
   return (
     <NavbarClientContainer>
-      <div className="container mx-auto px-4 md:px-8 flex items-center justify-between py-4">
+      <div className="flex items-center justify-between py-4">
         <div className="flex items-center gap-12">
           {/* Logo */}
           <Logo />
