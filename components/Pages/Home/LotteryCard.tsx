@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export interface LotteryItem {
@@ -23,7 +24,7 @@ const LotteryCard = ({ item }: LotteryCardProps) => {
   return (
     <div className="bg-white rounded-[12px] p-3 sm:p-4 flex flex-col gap-3 relative">
       {/* Badges */}
-      <div className="absolute top-5 left-6 flex gap-1 z-10">
+      {/* <div className="absolute top-5 left-6 flex gap-1 z-10">
         {item.isNew && (
           <span className="bg-red-500 text-white text-[10px] sm:text-xs font-semibold px-2 py-1 rounded">
             New
@@ -34,11 +35,11 @@ const LotteryCard = ({ item }: LotteryCardProps) => {
             {item.discount}% OFF
           </span>
         )}
-      </div>
+      </div> */}
 
       {/* Top Image Section */}
       <div
-        className={`relative w-full h-[140px] sm:h-[180px] rounded-[4px] flex flex-col items-center justify-between p-3 sm:p-7 ${
+        className={`relative w-full h-35 sm:h-45 rounded-lg flex flex-col items-center justify-between p-3 sm:p-7 ${
           item.imageBg || "bg-gray-100"
         }`}
       >
@@ -49,9 +50,10 @@ const LotteryCard = ({ item }: LotteryCardProps) => {
         </h3>
         <div className="relative w-28 h-16 sm:w-36 sm:h-24 mt-4">
           {/* Using a placeholder for dummy data, falling back to Next Image if valid URL */}
-          <img
+          <Image
             src={item.imageUrl}
             alt={item.title}
+            fill
             className="w-full h-full object-contain mix-blend-multiply hover:scale-110 transition-transform duration-300 cursor-pointer"
           />
         </div>

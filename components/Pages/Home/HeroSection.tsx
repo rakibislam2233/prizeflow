@@ -77,7 +77,7 @@ const HeroSection = () => {
             </div>
 
             {/* Right Image Content */}
-            <div className="w-full lg:w-[50%] flex justify-center lg:justify-end relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px]">
+            <div className="w-full lg:w-[50%] flex justify-center lg:justify-end relative h-75 sm:h-100 md:h-125 lg:h-150 xl:h-175">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9, x: 40 }}
                 animate={{ opacity: 1, scale: 1, x: 0 }}
@@ -87,7 +87,7 @@ const HeroSection = () => {
                   type: "spring",
                   bounce: 0.3,
                 }}
-                className="relative w-full h-full flex items-center justify-center max-w-[700px] sm:max-w-[800px] lg:max-w-[900px] xl:max-w-[1000px]"
+                className="relative w-full h-full flex items-center justify-center max-w-175 sm:max-w-200 lg:max-w-225 xl:max-w-250"
               >
                 <Image
                   src={sliderData[currentSlide].image}
