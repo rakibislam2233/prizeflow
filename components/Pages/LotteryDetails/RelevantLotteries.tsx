@@ -9,10 +9,12 @@ interface RelevantLotteriesProps {
   currentLotteryId: string;
 }
 
-const RelevantLotteries: React.FC<RelevantLotteriesProps> = ({ currentLotteryId }) => {
+const RelevantLotteries: React.FC<RelevantLotteriesProps> = ({
+  currentLotteryId,
+}) => {
   // Filter out the current lottery and get 6 relevant lotteries
   const relevantLotteries = allLotteries
-    .filter(lottery => lottery.id !== currentLotteryId)
+    .filter((lottery) => lottery.id !== currentLotteryId)
     .slice(0, 6);
 
   return (
@@ -22,7 +24,7 @@ const RelevantLotteries: React.FC<RelevantLotteriesProps> = ({ currentLotteryId 
           <h2 className="text-xl sm:text-2xl font-semibold text-gray-800">
             Relevant Lottery Tickets
           </h2>
-          <Link href="/lotteries">
+          <Link href="/competition" className="flex items-center gap-1">
             <span className="text-sm font-medium text-green-600 flex items-center gap-1 hover:text-green-700 transition-colors whitespace-nowrap">
               View all <ArrowRight className="w-4 h-4" />
             </span>

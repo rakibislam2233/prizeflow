@@ -13,7 +13,7 @@ interface LotteryDetailPageProps {
 
 type DetailTabKey = "description" | "liveEntries" | "howItWorks" | "terms";
 
-const LotteryDetailPage: React.FC<LotteryDetailPageProps> = ({ lottery }) => {
+const LotteryDetailsPage: React.FC<LotteryDetailPageProps> = ({ lottery }) => {
   const [ticketQuantity, setTicketQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState<DetailTabKey>("description");
 
@@ -337,4 +337,4 @@ const LotteryDetailPage: React.FC<LotteryDetailPageProps> = ({ lottery }) => {
   );
 };
 
-export default LotteryDetailPage;
+export default LotteryDetailsPage;

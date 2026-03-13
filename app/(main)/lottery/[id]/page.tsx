@@ -1,15 +1,16 @@
-import LotteryDetailPage from "@/components/Pages/LotteryDetail/LotteryDetailPage";
+import LotteryDetailsPage from "@/components/Pages/LotteryDetails/LotteryDetailsPage";
 import { lotteryLookup } from "@/data/lotteryData";
 
 interface LotteryDetailPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: LotteryDetailPageProps) {
+  const resolvedParams = await params;
   // Always use the first lottery as fallback for metadata
-  const lottery = lotteryLookup[params.id] || lotteryLookup["f1"];
+  const lottery = lotteryLookup[resolvedParams.id] || lotteryLookup["f1"];
   
   return {
     title: `${lottery.title} | PrizeFlow`,
@@ -17,11 +18,12 @@ export async function generateMetadata({ params }: LotteryDetailPageProps) {
   };
 }
 
-const LotteryDetailPageWrapper = ({ params }: LotteryDetailPageProps) => {
+const LotteryDetailPageWrapper = async ({ params }: LotteryDetailPageProps) => {
+  const resolvedParams = await params;
   // Always show a lottery, use the requested ID if exists, otherwise use the first one
-  const lottery = lotteryLookup[params.id] || lotteryLookup["f1"];
+  const lottery = lotteryLookup[resolvedParams.id] || lotteryLookup["f1"];
   
-  return <LotteryDetailPage lottery={lottery} />;
+  return <LotteryDetailsPage lottery={lottery} />;
 };
 
 export default LotteryDetailPageWrapper;

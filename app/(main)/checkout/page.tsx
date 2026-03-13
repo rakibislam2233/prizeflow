@@ -2,14 +2,15 @@ import CheckoutPage from "@/components/Pages/Checkout/CheckoutPage";
 import { lotteryLookup } from "@/data/lotteryData";
 import Link from "next/link";
 interface CheckoutPageProps {
-  searchParams: {
+  searchParams: Promise<{
     lotteryId?: string;
     quantity?: string;
-  };
+  }>;
 }
-const CheckoutPageWrapper = ({ searchParams }: CheckoutPageProps) => {
-  const lotteryId = searchParams.lotteryId || "f1";
-  const quantity = parseInt(searchParams.quantity || "1");
+const CheckoutPageWrapper = async ({ searchParams }: CheckoutPageProps) => {
+  const resolvedSearchParams = await searchParams;
+  const lotteryId = resolvedSearchParams.lotteryId || "f1";
+  const quantity = parseInt(resolvedSearchParams.quantity || "1");
 
   const lottery = lotteryLookup[lotteryId];
 
