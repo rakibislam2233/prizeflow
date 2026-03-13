@@ -131,7 +131,7 @@ const CompetitionPage: React.FC = () => {
               value={selectedCategory}
               onValueChange={handleCategoryFilter}
               options={categoryOptions}
-              triggerClassName="h-10"
+              triggerClassName="h-12"
             />
 
             {/* Price Sort Dropdown */}
@@ -139,7 +139,7 @@ const CompetitionPage: React.FC = () => {
               value={sortBy}
               onValueChange={setSortBy}
               options={sortOptions}
-              triggerClassName="h-10"
+              triggerClassName="h-12"
             />
           </div>
 

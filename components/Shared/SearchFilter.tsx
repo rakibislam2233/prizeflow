@@ -92,7 +92,7 @@ const SearchFilter = ({
 
         {/* Filter Dropdowns */}
         {filters.map((filter) => (
-          <div key={filter.name} className="min-w-[180px]">
+          <div key={filter.name} className="min-w-45">
             <FormSelect
               name={filter.name}
               value={
@@ -106,7 +106,7 @@ const SearchFilter = ({
                 ...filter.options,
               ]}
               placeholder={filter.label}
-              triggerClassName="h-11 bg-gray-50/30 font-medium"
+              triggerClassName="h-12 bg-gray-50/30 font-medium"
             />
           </div>
         ))}

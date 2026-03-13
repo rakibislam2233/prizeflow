@@ -132,3 +132,11 @@ body {
     box-sizing: border-box;
     background-color: var(--secondary);
 }
+
+/* Prevent Radix/portal scroll-lock from hiding the page scrollbar (requested global behavior). */
+html[data-scroll-locked],
+body[data-scroll-locked],
+body[style*="overflow: hidden"] {
+    overflow-y: scroll !important;
+    padding-right: 0 !important;
+}

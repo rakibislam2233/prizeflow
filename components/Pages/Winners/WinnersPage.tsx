@@ -104,10 +104,10 @@ const WinnersPage: React.FC = () => {
             </div>
           </div>
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Our winner's
+            Our winner&apos;s
           </h1>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Celebrating real people who've won amazing prizes. Every winner is
+            Celebrating real people who&apos;ve won amazing prizes. Every winner is
             verified and publicly announced.
           </p>
         </div>
@@ -116,7 +116,7 @@ const WinnersPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           <div className="bg-white rounded-lg p-6 text-center shadow-sm">
             <h2 className="text-3xl font-bold text-gray-900 mb-2">10</h2>
-            <p className="text-gray-600">Total winner's</p>
+            <p className="text-gray-600">Total winner&apos;s</p>
           </div>
           <div className="bg-white rounded-lg p-6 text-center shadow-sm">
             <h2 className="text-3xl font-bold text-gray-900 mb-2">$10000</h2>
@@ -149,7 +149,7 @@ const WinnersPage: React.FC = () => {
               value={selectedMonth}
               onValueChange={setSelectedMonth}
               options={monthOptions}
-              triggerClassName="h-10"
+              triggerClassName="h-12"
             />
           </div>
         </div>
