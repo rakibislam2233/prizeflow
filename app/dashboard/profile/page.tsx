@@ -30,16 +30,6 @@ export default function ProfilePage() {
     }));
   };
 
-  const handleNotificationChange = (field: string, value: boolean) => {
-    setFormData(prev => ({
-      ...prev,
-      notifications: {
-        ...prev.notifications,
-        [field]: value
-      }
-    }));
-  };
-
   const handleSave = () => {
     // Save logic here
     setIsEditing(false);

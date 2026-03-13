@@ -13,16 +13,14 @@ import { cn } from "@/lib/utils";
 import { logoutUser } from "@/services/auth.service";
 import { motion } from "framer-motion";
 import {
-  ChevronDown,
   Cloud,
   CreditCard,
   HardDrive,
-  LayoutDashboard,
   LogOut,
   Settings,
   User as UserIcon,
 } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 import { toast } from "sonner";
 
@@ -38,6 +36,8 @@ const UserDropdown: React.FC<UserDropdownProps> = ({
   theme = "default",
 }) => {
   const router = useRouter();
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
 
   const handleLogout = async () => {
     try {
@@ -52,10 +52,34 @@ const UserDropdown: React.FC<UserDropdownProps> = ({
 
   const isEmerald = theme === "emerald";
 
+  const nameClassName = cn(
+    "text-base font-medium transition-colors",
+    isHomePage
+      ? isEmerald
+        ? "text-white group-data-[scrolled=true]:text-emerald-600 group-hover:text-white/90 group-data-[scrolled=true]:group-hover:text-emerald-700"
+        : "text-white group-data-[scrolled=true]:text-gray-700 group-hover:text-white/90 group-data-[scrolled=true]:group-hover:text-gray-900"
+      : isEmerald
+        ? "text-emerald-600 group-hover:text-emerald-700"
+        : "text-gray-700 group-hover:text-gray-900",
+  );
+
+  const emailClassName = cn(
+    "text-xs transition-colors",
+    isHomePage
+      ? "text-white/85 group-data-[scrolled=true]:text-gray-500"
+      : "text-gray-500",
+  );
+
   return (
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
-        <div className="flex items-center gap-3 pl-2 pr-1 py-1 rounded-md border border-transparent cursor-pointer transition-all group group-data-[scrolled=true]:border-gray-200">
+        <div className="flex items-center gap-3 pl-2 pr-1 py-1  cursor-pointer transition-all group group-data-[scrolled=true]:border-gray-200">
+          <div className="flex flex-col gap-1 leading-none">
+            <h1 className={nameClassName}>
+              {user?.fullName || "User"}
+            </h1>
+            <h1 className={emailClassName}>{user?.email}</h1>
+          </div>
           <Avatar
             className={cn(
               "size-10 rounded-full border  transition-transform group-hover:scale-105",
@@ -79,12 +103,6 @@ const UserDropdown: React.FC<UserDropdownProps> = ({
                 .slice(0, 2) || "UR"}
             </AvatarFallback>
           </Avatar>
-          <ChevronDown
-            className={cn(
-              "w-3.5 h-3.5 text-gray-400 group-hover:text-gray-900 transition-transform duration-200 group-data-[state=open]:rotate-180",
-              isEmerald && "group-hover:text-emerald-600",
-            )}
-          />
         </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent
