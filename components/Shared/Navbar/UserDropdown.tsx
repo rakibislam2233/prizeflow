@@ -101,16 +101,6 @@ const UserDropdown: React.FC<UserDropdownProps> = ({
           <DropdownMenuLabel className="px-3 py-2 text-xs  text-gray-400  tracking-widest border-b border-gray-100 mb-2">
             Account Overview
           </DropdownMenuLabel>
-
-          {/* Menu Items */}
-          <DropdownMenuItem
-            onClick={() => router.push(dashboardHref)}
-            className="px-3 py-2.5 text-sm text-gray-700 rounded-md cursor-pointer flex items-center gap-3 transition-colors focus:text-white hover:bg-gray-50 focus:bg-primary"
-          >
-            <LayoutDashboard className="w-4 h-4 text-primary" />
-            <span className="font-medium">Dashboard</span>
-          </DropdownMenuItem>
-
           <DropdownMenuItem
             onClick={() => router.push(`${dashboardHref}/profile`)}
             className="px-3 py-2.5 text-sm text-gray-700 rounded-md cursor-pointer flex items-center gap-3 transition-colors focus:text-white hover:bg-gray-50 focus:bg-primary"

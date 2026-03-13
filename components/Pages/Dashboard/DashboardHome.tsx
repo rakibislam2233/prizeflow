@@ -40,7 +40,7 @@ const DashboardHome = () => {
   return (
     <div className="w-full flex flex-col lg:flex-row gap-6">
       {/* Sidebar */}
-      <aside className="w-full lg:w-64 p-5 rounded-lg h-fit bg-white border-r lg:border-r-0 lg:border border-gray-200">
+      <aside className="w-full lg:w-64 p-5 rounded-lg h-fit sm:h-96 bg-white border-r lg:border-r-0 lg:border border-gray-200">
         <nav className="space-y-4">
           {menuItems.map((item) => (
             <Link
