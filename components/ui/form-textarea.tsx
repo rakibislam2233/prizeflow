@@ -34,7 +34,7 @@ const FormTextarea = React.forwardRef<HTMLTextAreaElement, FormTextareaProps>(
             name={name}
             ref={ref}
             className={cn(
-              "min-h-[100px] text-base border-gray-200 rounded-md focus:border-primary focus:ring-primary transition-all font-medium",
+              "min-h-25 text-base border-gray-200 rounded-lg focus:border-primary focus:ring-primary transition-all font-medium",
               Icon && "pl-10 pt-2.5",
               error ? "border-red-500 bg-red-50/10" : "bg-gray-50/30",
               className,
