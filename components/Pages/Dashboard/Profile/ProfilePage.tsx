@@ -2,27 +2,13 @@
 
 import { Button } from "@/components/ui/button";
 import { FormInput } from "@/components/ui/form-input";
+import { dashboardProfileInitialData } from "@/data/dashboardData";
 import { Calendar, Edit3, Mail, MapPin, Phone, Save, User, X } from "lucide-react";
 import { useState } from "react";
 
 const ProfilePage = () => {
   const [isEditing, setIsEditing] = useState(false);
-  const [formData, setFormData] = useState({
-    firstName: "John",
-    lastName: "Doe",
-    email: "john.doe@example.com",
-    phone: "+1 234 567 8900",
-    dateOfBirth: "1990-01-15",
-    address: "123 Competition Street, Prize City, PC 12345",
-    currentPassword: "",
-    newPassword: "",
-    confirmPassword: "",
-    notifications: {
-      drawReminder: true,
-      entryConfirmations: true,
-      winnerAnnouncements: false,
-    },
-  });
+  const [formData, setFormData] = useState(dashboardProfileInitialData);
 
   const handleInputChange = (field: string, value: string | boolean) => {
     setFormData((prev) => ({

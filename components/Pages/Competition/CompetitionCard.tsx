@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -24,9 +25,10 @@ const CompetitionCard = ({ lottery }: CompetitionCardProps) => {
     >
       {/* Prize Image */}
       <div className="relative h-48 bg-linear-to-br from-gray-50 to-gray-100 rounded-t-lg overflow-hidden">
-        <img
+        <Image
           src={lottery.imageUrl}
           alt={lottery.title}
+          fill
           className="w-full h-full object-cover"
         />
         <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full text-xs font-medium text-gray-700">

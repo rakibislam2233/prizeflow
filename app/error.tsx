@@ -47,7 +47,7 @@ export default function Error({
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button
               onClick={() => reset()}
-              className="bg-primary text-white rounded-none h-14 px-10 text-base font-bold  shadow-lg hover:shadow-primary/20 transition-all active:scale-95 flex items-center gap-2 cursor-pointer"
+              className="bg-primary text-white rounded-lg h-14 px-10 text-base font-bold  shadow-lg hover:shadow-primary/20 transition-all active:scale-95 flex items-center gap-2 cursor-pointer"
             >
               <RefreshCcw className="w-5 h-5" />
               Try Again
@@ -55,7 +55,7 @@ export default function Error({
             <Link href="/">
               <Button
                 variant="outline"
-                className="border-[#D6DDEB] text-[#25324B] hover:bg-gray-50 rounded-none h-14 px-10 text-base font-bold  transition-all active:scale-95 cursor-pointer"
+                className="border-[#D6DDEB] text-[#25324B] hover:bg-gray-50 rounded-lg h-14 px-10 text-base font-bold  transition-all active:scale-95 cursor-pointer"
               >
                 Back to Home
               </Button>

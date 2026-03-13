@@ -2,64 +2,8 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { dashboardEntries } from "@/data/dashboardData";
 import Image from "next/image";
-
-const entries = [
-  {
-    id: "1",
-    image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=300&h=200&fit=crop",
-    title: "Win a brand new car",
-    price: "$2",
-    tickets: ["R123", "R456", "R789"],
-    drawDate: "26 March 2026",
-    status: "Active",
-  },
-  {
-    id: "2",
-    image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=300&h=200&fit=crop",
-    title: "Win a brand new car",
-    price: "$2",
-    tickets: ["R123", "R456", "R789"],
-    drawDate: "26 March 2026",
-    status: "Active",
-  },
-  {
-    id: "3",
-    image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=300&h=200&fit=crop",
-    title: "Win a brand new car",
-    price: "$2",
-    tickets: ["R123", "R456", "R789"],
-    drawDate: "26 March 2026",
-    status: "Active",
-  },
-  {
-    id: "4",
-    image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=300&h=200&fit=crop",
-    title: "Win a brand new car",
-    price: "$2",
-    tickets: ["R123", "R456", "R789"],
-    drawDate: "26 January 2026",
-    status: "Completed",
-  },
-  {
-    id: "5",
-    image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=300&h=200&fit=crop",
-    title: "Win a brand new car",
-    price: "$2",
-    tickets: ["R123", "R456", "R789"],
-    drawDate: "26 January 2026",
-    status: "Completed",
-  },
-  {
-    id: "6",
-    image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=300&h=200&fit=crop",
-    title: "Win a brand new car",
-    price: "$2",
-    tickets: ["R123", "R456", "R789"],
-    drawDate: "26 January 2026",
-    status: "Completed",
-  },
-];
 
 const EntriesPage = () => {
   return (
@@ -70,7 +14,7 @@ const EntriesPage = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {entries.map((entry) => (
+        {dashboardEntries.map((entry) => (
           <div
             key={entry.id}
             className="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow"

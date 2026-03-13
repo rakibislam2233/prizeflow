@@ -22,13 +22,12 @@ const CompetitionPage: React.FC = () => {
   useEffect(() => {
     const urlSearchTerm = searchParams.get("searchTerm");
     const urlCategory = searchParams.get("category");
-
-    if (urlSearchTerm) {
-      setSearchTerm(urlSearchTerm);
-    }
-    if (urlCategory) {
-      setSelectedCategory(urlCategory);
-      handleCategoryFilter(urlCategory);
+    setSearchTerm((prev) => urlSearchTerm || "");
+    setSelectedCategory((prev) => urlCategory || "all");
+    if (urlCategory && urlCategory !== "all") {
+      setActiveFilters([`Category: ${urlCategory}`]);
+    } else {
+      setActiveFilters([]);
     }
   }, [searchParams]);
 

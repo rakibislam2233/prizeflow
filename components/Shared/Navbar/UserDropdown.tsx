@@ -10,7 +10,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { IUser } from "@/interface/user.interface";
 import { cn } from "@/lib/utils";
-import { logoutUser } from "@/services/auth.service";
 import { motion } from "framer-motion";
 import {
   Cloud,
@@ -41,7 +40,6 @@ const UserDropdown: React.FC<UserDropdownProps> = ({
 
   const handleLogout = async () => {
     try {
-      await logoutUser();
       toast.success("Logged out successfully");
       router.push("/login");
       router.refresh();
@@ -75,9 +73,7 @@ const UserDropdown: React.FC<UserDropdownProps> = ({
       <DropdownMenuTrigger asChild>
         <div className="flex items-center gap-3 pl-2 pr-1 py-1  cursor-pointer transition-all group group-data-[scrolled=true]:border-gray-200">
           <div className="flex flex-col gap-1 leading-none">
-            <h1 className={nameClassName}>
-              {user?.fullName || "User"}
-            </h1>
+            <h1 className={nameClassName}>{user?.fullName || "User"}</h1>
             <h1 className={emailClassName}>{user?.email}</h1>
           </div>
           <Avatar

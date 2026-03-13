@@ -47,7 +47,7 @@ const DashboardHome = () => {
               href={item.href}
               key={item.name}
               className={cn(
-                "flex items-center gap-3 px-4 py-3 text-sm font-bold rounded transition-all duration-200 no-underline",
+                "flex items-center gap-3 px-4 py-3 text-sm font-bold rounded-lg transition-all duration-200 no-underline",
                 pathname === item.href
                   ? "bg-primary text-white"
                   : "text-gray-500 hover:text-primary hover:bg-white/50",

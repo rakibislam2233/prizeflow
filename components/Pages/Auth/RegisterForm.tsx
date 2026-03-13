@@ -89,7 +89,7 @@ export default function RegisterForm() {
         <Button
           type="submit"
           disabled={isPending}
-          className="w-full bg-primary text-white rounded h-12 text-xs font-bold  tracking-widest shadow-none hover:bg-primary/90 transition-all active:scale-[0.98] mt-4 cursor-pointer"
+          className="w-full bg-primary text-white rounded-lg h-12 text-xs font-bold  tracking-widest shadow-none hover:bg-primary/90 transition-all active:scale-[0.98] mt-4 cursor-pointer"
         >
           {isPending ? "Creating Account..." : "Start Managing Files"}
         </Button>

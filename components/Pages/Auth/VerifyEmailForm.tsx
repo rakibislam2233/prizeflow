@@ -63,7 +63,7 @@ export default function VerifyEmailForm() {
                 type="text"
                 placeholder="e.g. 1234"
                 maxLength={6}
-                className="w-full h-12 bg-gray-50 border-gray-100 rounded-none outline-none shadow-none focus-visible:ring-0 focus-visible:border-primary focus-visible:bg-white transition-all text-sm text-center tracking-wider"
+                className="w-full h-12 bg-gray-50 border-gray-100 rounded-lg outline-none shadow-none focus-visible:ring-0 focus-visible:border-primary focus-visible:bg-white transition-all text-sm text-center tracking-wider"
               />
             </div>
             {state?.errors?.code && (
@@ -77,7 +77,7 @@ export default function VerifyEmailForm() {
         <Button
           type="submit"
           disabled={isPending}
-          className="w-full cursor-pointer bg-primary text-white rounded h-12 text-base font-semibold shadow-none hover:bg-primary"
+          className="w-full cursor-pointer bg-primary text-white rounded-lg h-12 text-base font-semibold shadow-none hover:bg-primary"
         >
           {isPending ? "Verifying..." : "Verify Email"}
         </Button>

@@ -33,14 +33,14 @@ const NotFound = () => {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/">
-              <Button className="bg-primary text-white rounded-none h-14 px-10 text-base font-bold  shadow-lg hover:shadow-primary/20 transition-all active:scale-95 cursor-pointer">
+              <Button className="bg-primary text-white rounded-lg h-14 px-10 text-base font-bold  shadow-lg hover:shadow-primary/20 transition-all active:scale-95 cursor-pointer">
                 Back to Home
               </Button>
             </Link>
             <Link href="/jobs">
               <Button
                 variant="outline"
-                className="border-primary text-primary hover:bg-primary/5 rounded-none h-14 px-10 text-base font-bold  transition-all active:scale-95 cursor-pointer"
+                className="border-primary text-primary hover:bg-primary/5 rounded-lg h-14 px-10 text-base font-bold  transition-all active:scale-95 cursor-pointer"
               >
                 Browse Jobs
               </Button>

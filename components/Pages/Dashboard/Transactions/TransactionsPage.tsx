@@ -2,39 +2,7 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-
-const transactions = [
-  {
-    date: "12/10/2016",
-    description: "Win a car",
-    amount: "$12",
-    status: "Completed",
-  },
-  {
-    date: "12/10/2016",
-    description: "Gaming setup",
-    amount: "$16",
-    status: "Completed",
-  },
-  {
-    date: "12/10/2016",
-    description: "Rolex watch",
-    amount: "$19",
-    status: "Completed",
-  },
-  {
-    date: "12/10/2016",
-    description: "Dubai trip",
-    amount: "$11",
-    status: "Completed",
-  },
-  {
-    date: "12/10/2016",
-    description: "Chicken dinner",
-    amount: "$14",
-    status: "Completed",
-  },
-];
+import { dashboardTransactions } from "@/data/dashboardData";
 
 const TransactionsPage = () => {
   return (
@@ -77,7 +45,7 @@ const TransactionsPage = () => {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {transactions.map((transaction, index) => (
+                {dashboardTransactions.map((transaction, index) => (
                   <tr key={index}>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                       {transaction.date}
